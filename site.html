@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DT Custom | Artigos Personalizados</title>
+  <meta name="description" content="DT Custom — artigos personalizados: garrafas, canecas, cadernos, sacos e brindes com a sua marca. Peça o seu orçamento.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============ CORES (inspiradas na imagem de layout) ============ */
+    :root {
+      --creme: #faf6ef;
+      --madeira: #ecd9bd;
+      --kraft: #c9a273;
+      --dourado: #b08d57;
+      --marinho: #1f2c47;
+      --carvao: #2a2a2e;
+      --texto: #3a3a40;
+      --cinza: #7a7872;
+      --raio: 6px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Montserrat', sans-serif; color: var(--texto); background: var(--creme); line-height: 1.7; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(1180px, 100% - 40px); margin-inline: auto; }
+    section { padding: 100px 0; }
+
+    h1, h2, h3 { font-family: 'Cormorant Garamond', serif; color: var(--carvao); font-weight: 600; line-height: 1.15; }
+    h2 { font-size: clamp(2rem, 4.5vw, 3rem); margin-bottom: 14px; }
+    .tag { display: block; font-size: .75rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--dourado); margin-bottom: 14px; }
+    .subtitulo { color: var(--cinza); max-width: 600px; }
+    .centro { text-align: center; }
+    .centro .subtitulo { margin-inline: auto; }
+
+    .btn {
+      display: inline-block; padding: 15px 34px; border-radius: var(--raio);
+      font-weight: 500; font-size: .85rem; letter-spacing: .14em; text-transform: uppercase;
+      transition: all .25s; cursor: pointer; border: 1px solid transparent; font-family: inherit;
+    }
+    .btn-principal { background: var(--carvao); color: #fff; }
+    .btn-principal:hover { background: var(--dourado); }
+    .btn-contorno { border-color: var(--carvao); color: var(--carvao); }
+    .btn-contorno:hover { background: var(--carvao); color: #fff; }
+
+    /* ============ MENU ============ */
+    header { position: fixed; inset: 0 0 auto 0; z-index: 100; background: rgba(250,246,239,.94); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(176,141,87,.25); }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+    .logo { display: flex; flex-direction: column; line-height: 1; align-items: flex-start; }
+    .logo b { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--dourado); letter-spacing: -.02em; }
+    .logo b small { font-size: 1.05rem; color: var(--carvao); letter-spacing: .22em; font-family: 'Montserrat', sans-serif; font-weight: 500; margin-left: 8px; }
+    .logo span { font-size: .55rem; letter-spacing: .3em; color: var(--cinza); margin-top: 3px; }
+    .menu { display: flex; gap: 34px; list-style: none; align-items: center; }
+    .menu a { font-size: .78rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--carvao); transition: color .2s; }
+    .menu a:hover { color: var(--dourado); }
+    .menu-btn { display: none; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--carvao); }
+
+    /* Submenu de produtos */
+    .menu > li { position: relative; }
+    .menu > li.tem-sub { padding: 28px 0; }
+    .submenu { position: absolute; top: 100%; left: -20px; min-width: 220px; list-style: none; background: #fff; border: 1px solid rgba(176,141,87,.25); border-radius: 8px; padding: 10px 0; box-shadow: 0 18px 40px rgba(60,40,10,.14); opacity: 0; visibility: hidden; transform: translateY(8px); transition: all .2s; }
+    .menu > li:hover .submenu, .menu > li:focus-within .submenu { opacity: 1; visibility: visible; transform: none; }
+    .submenu a { display: block; padding: 9px 22px; font-size: .74rem; }
+    .submenu a:hover { background: var(--creme); }
+    .produto { cursor: pointer; }
+    .produto:not(.destaque) .texto::after { content: "Ver detalhes →"; display: block; margin-top: 14px; font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--dourado); font-weight: 600; }
+
+    /* ============ HERO ============ */
+    .hero { padding: 140px 0 90px; background: linear-gradient(180deg, var(--creme), var(--madeira)); }
+    .hero-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 56px; align-items: center; }
+    .hero h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); margin-bottom: 20px; }
+    .hero h1 em { color: var(--dourado); font-style: italic; }
+    .hero p { color: var(--cinza); max-width: 440px; margin-bottom: 34px; }
+    .hero-botoes { display: flex; gap: 14px; flex-wrap: wrap; }
+    /* A foto dissolve-se no fundo do banner (sem moldura) */
+    .hero-img { position: relative; }
+    .hero-img img {
+      width: 100%; height: clamp(360px, 54vw, 600px); object-fit: cover; object-position: center 30%;
+      mix-blend-mode: multiply;
+      -webkit-mask-image: linear-gradient(to right, transparent 0, #000 9%, #000 92%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 4%, #000 90%, transparent 100%);
+      -webkit-mask-composite: source-in;
+      mask-image: linear-gradient(to right, transparent 0, #000 9%, #000 92%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 4%, #000 90%, transparent 100%);
+      mask-composite: intersect;
+    }
+
+    /* ============ FAIXA ============ */
+    .faixa { background: var(--carvao); color: #e8dfce; padding: 22px 0; }
+    .faixa .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px 30px; font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; }
+    .faixa span::before { content: "◆"; color: var(--dourado); margin-right: 10px; font-size: .6rem; }
+
+    /* ============ IMAGENS RECORTADAS DA FOTO ============ */
+    .recorte {
+      background-image: url('IMG/DT%20custom%20layout.jpg');
+      background-repeat: no-repeat;
+      background-size: 380% auto;
+      background-color: var(--madeira);
+    }
+
+    /* ============ PRODUTOS ============ */
+    .produtos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 26px; margin-top: 56px; }
+    .foto.sem-foto, .prod-foto.sem-foto { display: grid; place-items: center; background: linear-gradient(135deg, var(--madeira), var(--kraft)); }
+    .foto.sem-foto span { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.5rem; color: #fff; }
+    .produto { background: #fff; border-radius: 10px; overflow: hidden; transition: transform .3s, box-shadow .3s; border: 1px solid rgba(176,141,87,.18); }
+    .produto:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(60,40,10,.12); }
+    .produto .foto { height: 320px; background-size: cover; background-position: center 82%; background-repeat: no-repeat; background-color: var(--madeira); }
+    .produto div.texto { padding: 26px 28px 30px; }
+    .produto h3 { font-size: 1.6rem; margin-bottom: 6px; }
+    .produto p { color: var(--cinza); font-size: .92rem; }
+
+    /* Cartão em destaque (Cadernos): ocupa a linha toda */
+    .produto.destaque { grid-column: 1 / -1; display: grid; grid-template-columns: 1.5fr 1fr; align-items: stretch; }
+    .produto.destaque .foto { height: 100%; min-height: 380px; background-size: cover !important; background-position: center !important; }
+    .produto.destaque .texto { display: flex; flex-direction: column; justify-content: center; padding: 40px; }
+    .produto.destaque h3 { font-size: 2.2rem; }
+    .produto.destaque p { font-size: 1rem; margin-bottom: 22px; }
+    .produto.destaque .btn { align-self: flex-start; }
+    @media (max-width: 800px) { .produto.destaque { grid-template-columns: 1fr; } .produto.destaque .foto { min-height: 280px; } .produto.destaque .texto { padding: 26px 28px 30px; } }
+
+    /* Ampliar foto (resolução total) */
+    .lightbox { position: fixed; inset: 0; z-index: 200; background: rgba(15,15,18,.92); display: none; align-items: center; justify-content: center; padding: 20px; cursor: zoom-out; }
+    .lightbox.aberto { display: flex; }
+    .lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 6px; }
+    .lightbox button { position: absolute; top: 14px; right: 20px; background: none; border: none; color: #fff; font-size: 2.4rem; cursor: pointer; line-height: 1; }
+
+    /* ============ PROCESSO ============ */
+    .processo { background: var(--madeira); }
+    .passos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 36px; margin-top: 56px; counter-reset: passo; }
+    .passo { counter-increment: passo; padding-top: 14px; border-top: 1px solid var(--dourado); }
+    .passo::before { content: "0" counter(passo); display: block; font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: var(--dourado); line-height: 1.2; }
+    .passo h3 { font-size: 1.5rem; margin-bottom: 6px; }
+    .passo p { color: #6b675f; font-size: .92rem; }
+
+    /* ============ SOBRE ============ */
+    .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .sobre-img { height: 520px; border-radius: 10px; background: #1a1a1c url('IMG/Gemini_Generated_Image_ebyib9ebyib9ebyi.jpg') center / cover no-repeat; box-shadow: 0 30px 60px rgba(60,40,10,.18); }
+    .sobre-texto p { color: var(--cinza); margin-bottom: 16px; }
+    .vantagens { list-style: none; margin-top: 22px; }
+    .vantagens li { padding-left: 30px; position: relative; margin-bottom: 10px; font-weight: 500; }
+    .vantagens li::before { content: "◆"; position: absolute; left: 0; color: var(--dourado); font-size: .7rem; top: 4px; }
+
+    /* ============ CONTACTOS ============ */
+    .contactos { background: var(--marinho); color: #fff; }
+    .contactos h2 { color: #fff; }
+    .contactos .subtitulo { color: #b9c0d0; }
+    .contactos-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; margin-top: 56px; }
+    .info-item { margin-bottom: 28px; padding-left: 20px; border-left: 2px solid var(--dourado); }
+    .info-item h4 { font-size: .72rem; letter-spacing: .24em; text-transform: uppercase; color: var(--kraft); font-weight: 600; margin-bottom: 2px; }
+    .info-item p, .info-item a { color: #e6e9f0; }
+    .info-item a:hover { color: var(--kraft); }
+
+    form { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12); border-radius: 10px; padding: 36px; display: grid; gap: 16px; }
+    .linha { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    label { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: #b9c0d0; display: block; margin-bottom: 6px; }
+    input, select, textarea { width: 100%; padding: 13px 15px; border-radius: var(--raio); border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.07); color: #fff; font-family: inherit; font-size: .95rem; }
+    select option { color: #000; }
+    input:focus, select:focus, textarea:focus { outline: 2px solid var(--dourado); border-color: transparent; }
+    textarea { resize: vertical; min-height: 120px; }
+    form .btn-principal { background: var(--dourado); }
+    form .btn-principal:hover { background: var(--kraft); }
+    .form-nota { font-size: .78rem; color: #8f98ad; }
+
+    /* ============ RODAPÉ ============ */
+    footer { background: var(--carvao); color: #a8a49b; padding: 32px 0; font-size: .85rem; }
+    .rodape { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .redes { display: flex; gap: 12px; }
+    .redes a { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,.2); display: grid; place-items: center; transition: all .2s; }
+    .redes a:hover { background: var(--dourado); border-color: var(--dourado); }
+    .redes svg { width: 17px; height: 17px; fill: #fff; }
+
+    .whatsapp { position: fixed; right: 20px; bottom: 20px; z-index: 99; width: 58px; height: 58px; border-radius: 50%; background: #25d366; display: grid; place-items: center; box-shadow: 0 8px 20px rgba(0,0,0,.25); transition: transform .2s; }
+    .whatsapp:hover { transform: scale(1.08); }
+    .whatsapp svg { width: 30px; height: 30px; fill: #fff; }
+
+    /* ============ TELEMÓVEL ============ */
+    @media (max-width: 900px) {
+      section { padding: 70px 0; }
+      .menu-btn { display: block; }
+      .menu { position: absolute; top: 80px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: var(--creme); max-height: 0; overflow: hidden; transition: max-height .3s; border-bottom: 1px solid rgba(176,141,87,.25); }
+      .menu.aberto { max-height: 400px; }
+      .menu li a { display: block; padding: 16px 24px; border-top: 1px solid rgba(176,141,87,.15); }
+      .menu > li.tem-sub { padding: 0; }
+      .submenu { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; border-radius: 0; background: rgba(236,217,189,.35); padding: 0; }
+      .submenu a { padding-left: 44px; }
+      .menu.aberto { max-height: 80vh; overflow-y: auto; }
+      .hero { padding-top: 120px; }
+      .hero-grid, .sobre-grid, .contactos-grid { grid-template-columns: 1fr; }
+      .sobre-img { height: 360px; }
+      .linha { grid-template-columns: 1fr; }
+      form { padding: 24px; }
+      .faixa .container { justify-content: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= MENU ================= -->
+  <header>
+    <nav class="container nav">
+      <a href="#inicio" class="logo" aria-label="DT Custom">
+        <b>DT<small>CUSTOM</small></b>
+        <span>ARTIGOS PERSONALIZADOS</span>
+      </a>
+      <button class="menu-btn" aria-label="Abrir menu" onclick="document.querySelector('.menu').classList.toggle('aberto')">☰</button>
+      <ul class="menu">
+        <li class="tem-sub">
+          <a href="#produtos">Produtos</a>
+          <ul class="submenu">
+            <li><a href="produtos/t-shirts.html">T-shirts</a></li>
+            <li><a href="produtos/sweats.html">Sweats</a></li>
+            <li><a href="produtos/canecas.html">Canecas</a></li>
+            <li><a href="produtos/canetas.html">Canetas</a></li>
+            <li><a href="produtos/porta-chaves.html">Porta-chaves</a></li>
+            <li><a href="produtos/guarda-chuvas.html">Guarda-chuvas</a></li>
+            <li><a href="produtos/cadernos.html">Cadernos</a></li>
+            <li><a href="produtos/saca-rolhas.html">Saca-rolhas</a></li>
+          </ul>
+        </li>
+        <li><a href="#processo">Como funciona</a></li>
+        <li><a href="#sobre">Sobre nós</a></li>
+        <li><a href="#contactos">Contactos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="inicio">
+    <div class="container hero-grid">
+      <div>
+        <span class="tag">Est. 2026 · Artigos personalizados</span>
+        <h1>A sua marca,<br>em cada <em>detalhe.</em></h1>
+        <p>Garrafas, canecas, cadernos, sacos e muito mais, personalizados com elegância e atenção ao detalhe. Peças únicas para si, para o seu evento ou para a sua empresa.</p>
+        <div class="hero-botoes">
+          <a href="#contactos" class="btn btn-principal">Pedir orçamento</a>
+          <a href="#produtos" class="btn btn-contorno">Ver produtos</a>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="IMG/web/sweat_homem.jpg" alt="Sweat azul-marinho personalizada DT Custom">
+      </div>
+    </div>
+  </section>
+
+  <div class="faixa">
+    <div class="container">
+      <span>Gravação &amp; estampagem</span>
+      <span>Maquete antes da produção</span>
+      <span>Loja online · Envios para todo o país</span>
+    </div>
+  </div>
+
+  <!-- ================= PRODUTOS ================= -->
+  <section id="produtos">
+    <div class="container">
+      <div class="centro">
+        <span class="tag">O que fazemos</span>
+        <h2>Os nossos produtos</h2>
+        <p class="subtitulo">Uma seleção de artigos que personalizamos com o seu logótipo, nome ou design.</p>
+      </div>
+      <div class="produtos-grid">
+        <article class="produto">
+          <div class="foto" data-full="IMG/t-shirts.jpg" style="background-image:url('IMG/web/t-shirts.jpg')"></div>
+          <div class="texto"><h3>T-shirts</h3><p>T-shirts em várias cores com estampagem ou vinil. Para equipas, eventos e marcas.</p></div>
+        </article>
+        <article class="produto">
+          <div class="foto" data-full="IMG/sweats.jpg" style="background-image:url('IMG/web/sweats.jpg')"></div>
+          <div class="texto"><h3>Sweats</h3><p>Sweats e hoodies personalizados, confortáveis e com acabamento premium.</p></div>
+        </article>
+        <article class="produto">
+          <div class="foto" data-full="IMG/canecas.jpg" style="background-image:url('IMG/web/canecas.jpg')"></div>
+          <div class="texto"><h3>Canecas</h3><p>Canecas brancas, pretas, azuis ou cinza com o seu logótipo ou frase.</p></div>
+        </article>
+        <article class="produto">
+          <div class="foto" data-full="IMG/canetas.jpg" style="background-image:url('IMG/web/canetas.jpg')"></div>
+          <div class="texto"><h3>Canetas</h3><p>Canetas metálicas e foscas com gravação. O brinde clássico para empresas.</p></div>
+        </article>
+        <article class="produto">
+          <div class="foto" data-full="IMG/porta%20chaves.jpg" style="background-image:url('IMG/web/porta-chaves.jpg')"></div>
+          <div class="texto"><h3>Porta-chaves</h3><p>Em pele, cortiça e bambu, com gravação personalizada. Há também abre-garrafas.</p></div>
+        </article>
+        <article class="produto">
+          <div class="foto" data-full="IMG/guarda-chuva.jpg" style="background-image:url('IMG/web/guarda-chuva.jpg')"></div>
+          <div class="texto"><h3>Guarda-chuvas</h3><p>Compactos ou clássicos, com o seu logótipo. Úteis em qualquer estação.</p></div>
+        </article>
+        <article class="produto">
+          <div class="foto" data-full="IMG/Cadernos.jpg" style="background-image:url('IMG/web/Cadernos.jpg')"></div>
+          <div class="texto"><h3>Cadernos</h3><p>Cadernos em várias cores e materiais, com o seu logótipo gravado em relevo. Elegantes e duradouros.</p></div>
+        </article>
+        <article class="produto">
+          <div class="foto sem-foto"><span>Foto em breve</span></div>
+          <div class="texto"><h3>Saca-rolhas</h3><p>Saca-rolhas de sommelier em aço, madeira, cortiça ou bambu, com abre-garrafas e o seu logótipo.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COMO FUNCIONA ================= -->
+  <section class="processo" id="processo">
+    <div class="container">
+      <div class="centro">
+        <span class="tag">Simples e rápido</span>
+        <h2>Como funciona</h2>
+        <p class="subtitulo" style="color:#6b675f">Do pedido à entrega, tratamos de tudo para que receba exatamente o que imaginou.</p>
+      </div>
+      <div class="passos">
+        <div class="passo"><h3>Contacte-nos</h3><p>Diga-nos o produto, a quantidade e a sua ideia ou logótipo.</p></div>
+        <div class="passo"><h3>Receba o orçamento</h3><p>Enviamos uma proposta rápida e sem compromisso.</p></div>
+        <div class="passo"><h3>Aprove a maquete</h3><p>Mostramos como ficará antes de iniciar a produção.</p></div>
+        <div class="passo"><h3>Produção e entrega</h3><p>Produzimos com cuidado e entregamos no prazo combinado.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SOBRE ================= -->
+  <section id="sobre">
+    <div class="container sobre-grid">
+      <div class="sobre-img" role="img" aria-label="Logótipo DT Custom em dourado"></div>
+      <div class="sobre-texto">
+        <span class="tag">Sobre nós</span>
+        <h2>Peças únicas, feitas com cuidado</h2>
+        <p>A DT Custom nasceu em 2026 com um objetivo simples: dar vida às ideias das pessoas e das marcas através de artigos personalizados de qualidade.</p>
+        <p>Somos uma loja 100% online: faz o pedido a partir de casa e recebe-o na morada que indicar. Trabalhamos com particulares, eventos e empresas. Seja uma única peça ou uma grande encomenda, o cuidado é sempre o mesmo.</p>
+        <ul class="vantagens">
+          <li>Materiais e acabamentos de qualidade</li>
+          <li>Maquete digital antes da produção</li>
+          <li>Atendimento próximo e personalizado</li>
+          <li>Prazos rápidos</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACTOS ================= -->
+  <section class="contactos" id="contactos">
+    <div class="container">
+      <span class="tag" style="color:var(--kraft)">Fale connosco</span>
+      <h2>Peça o seu orçamento</h2>
+      <p class="subtitulo">Preencha o formulário ou contacte-nos diretamente. Respondemos o mais rápido possível.</p>
+
+      <div class="contactos-grid">
+        <div>
+          <!-- ALTERE OS SEUS DADOS DE CONTACTO AQUI -->
+          <div class="info-item"><h4>Telefone / WhatsApp</h4><a href="tel:+351939630618">+351 939 630 618</a><br><a href="tel:+351911981913">+351 911 981 913</a></div>
+          <div class="info-item"><h4>Email</h4><a href="mailto:geral@dtcustom.pt">geral@dtcustom.pt</a></div>
+          <div class="info-item"><h4>Loja</h4><p>100% online<br>Envios para todo o país</p></div>
+          <div class="info-item"><h4>Atendimento</h4><p>Respondemos por email e WhatsApp<br>Seg – Dom, 09h00 – 18h00</p></div>
+        </div>
+
+        <form id="formulario">
+          <div class="linha">
+            <div><label for="nome">Nome</label><input id="nome" required placeholder="O seu nome"></div>
+            <div><label for="email">Email</label><input id="email" type="email" required placeholder="email@exemplo.com"></div>
+          </div>
+          <div class="linha">
+            <div><label for="telefone">Telefone</label><input id="telefone" type="tel" placeholder="9XX XXX XXX"></div>
+            <div>
+              <label for="produto">Produto</label>
+              <select id="produto">
+                <option>T-shirts</option>
+                <option>Sweats</option>
+                <option>Canecas</option>
+                <option>Canetas</option>
+                <option>Porta-chaves</option>
+                <option>Guarda-chuvas</option>
+                <option>Cadernos</option>
+                <option>Saca-rolhas</option>
+                <option>Outro</option>
+              </select>
+            </div>
+          </div>
+          <div><label for="mensagem">Mensagem</label><textarea id="mensagem" required placeholder="Descreva a sua ideia, quantidades, prazos..."></textarea></div>
+          <button type="submit" class="btn btn-principal">Enviar pedido</button>
+          <p class="form-nota">Ao enviar, abre o seu programa de email com o pedido já preenchido.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RODAPÉ ================= -->
+  <footer>
+    <div class="container rodape">
+      <p>© <span id="ano"></span> DT Custom · Artigos Personalizados. Todos os direitos reservados.</p>
+      <div class="redes">
+        <!-- Coloque os links das suas redes sociais -->
+        <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 4.7a5.1 5.1 0 100 10.2 5.1 5.1 0 000-10.2zm0 8.4a3.3 3.3 0 110-6.6 3.3 3.3 0 010 6.6zm5.3-9.8a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"/></svg>
+        </a>
+        <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.6 1.6-1.6h1.7V4.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H7.3v3.2h2.8V22h3.4z"/></svg>
+        </a>
+        <a href="https://tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M19.6 6.7a4.8 4.8 0 01-3.8-4.2V2h-3.4v13.4a2.9 2.9 0 11-2-2.7V9.2a6.3 6.3 0 105.4 6.2V8.6a8.2 8.2 0 003.8 1V6.7z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botão WhatsApp (altere o número: só dígitos, com indicativo 351) -->
+  <a class="whatsapp" href="https://wa.me/351939630618" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1112 21.8zM12 0a12 12 0 00-10.3 18.1L0 24l6.1-1.6A12 12 0 1012 0z"/></svg>
+  </a>
+
+  <script>
+    // Clicar num produto abre a sua página
+    document.querySelectorAll('.produto').forEach(function (card) {
+      var slug = card.querySelector('h3').textContent.trim().toLowerCase().replace(/\s+/g, '-');
+      card.addEventListener('click', function (e) {
+        if (e.target.closest('a')) return;
+        window.location.href = 'produtos/' + slug + '.html';
+      });
+    });
+
+    // Pré-seleciona o produto vindo de uma página de produto (?produto=...)
+    var pedido = new URLSearchParams(window.location.search).get('produto');
+    if (pedido) {
+      var sel = document.getElementById('produto');
+      for (var k = 0; k < sel.options.length; k++) { if (sel.options[k].text === pedido) sel.selectedIndex = k; }
+    }
+    document.getElementById('ano').textContent = new Date().getFullYear();
+
+    document.querySelectorAll('.menu a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        document.querySelector('.menu').classList.remove('aberto');
+      });
+    });
+
+    // Formulário: abre o email do cliente com o pedido preenchido (ALTERE o email de destino)
+    var EMAIL_DESTINO = 'geral@dtcustom.pt';
+
+    document.getElementById('formulario').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var nome = document.getElementById('nome').value;
+      var email = document.getElementById('email').value;
+      var telefone = document.getElementById('telefone').value;
+      var produto = document.getElementById('produto').value;
+      var mensagem = document.getElementById('mensagem').value;
+      var assunto = 'Pedido de orçamento - ' + produto;
+      var corpo = 'Nome: ' + nome + '\nEmail: ' + email + '\nTelefone: ' + telefone +
+                  '\nProduto: ' + produto + '\n\n' + mensagem;
+      window.location.href = 'mailto:' + EMAIL_DESTINO +
+        '?subject=' + encodeURIComponent(assunto) + '&body=' + encodeURIComponent(corpo);
+    });
+  </script>
+</body>
+</html>

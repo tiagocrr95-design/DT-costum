@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DT Custom | Bem-vindo</title>
+  <meta name="description" content="DT Custom — artigos personalizados. Entre na nossa loja online.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root { --dourado: #c9a46a; --dourado-claro: #e6c88f; --fundo: #121214; --creme: #faf6ef; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Montserrat', sans-serif; color: var(--creme);
+      background: radial-gradient(ellipse at 50% 40%, #26262b 0%, var(--fundo) 65%);
+      overflow: hidden;
+    }
+
+    /* brilho dourado a respirar */
+    body::before {
+      content: ""; position: fixed; left: 50%; top: 46%;
+      width: 60vmin; height: 60vmin; transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(201,164,106,.22), transparent 65%);
+      animation: respirar 6s ease-in-out infinite;
+    }
+    @keyframes respirar { 0%,100% { opacity: .55; transform: translate(-50%,-50%) scale(.9); } 50% { opacity: 1; transform: translate(-50%,-50%) scale(1.1); } }
+
+    /* ===== Centro ===== */
+    .centro {
+      position: relative; z-index: 5; height: 100%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 20px;
+    }
+    .logo { font-family: 'Cormorant Garamond', serif; line-height: .9; }
+    .logo .dt {
+      display: block; font-size: clamp(5rem, 16vw, 9.5rem); font-weight: 700; letter-spacing: -.02em;
+      background: linear-gradient(110deg, #9c7a45 20%, var(--dourado-claro) 45%, #9c7a45 70%);
+      background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
+      animation: entrar 1.2s cubic-bezier(.2,.8,.2,1) both, brilho 4.5s linear 1.4s infinite;
+    }
+    .logo .custom {
+      display: block; font-size: clamp(2.2rem, 7vw, 4rem); font-style: italic; font-weight: 600; color: var(--dourado);
+      animation: entrar 1.2s cubic-bezier(.2,.8,.2,1) .35s both;
+    }
+    @keyframes brilho { to { background-position: -150% 0; } }
+    @keyframes entrar { from { opacity: 0; transform: translateY(26px); letter-spacing: .15em; } to { opacity: 1; transform: none; } }
+
+    .linha { width: 70px; height: 1px; background: var(--dourado); margin: 26px 0 18px; animation: crescer 1s ease 1s both; }
+    @keyframes crescer { from { width: 0; opacity: 0; } to { width: 70px; opacity: 1; } }
+
+    .slogan { font-size: .75rem; letter-spacing: .34em; text-transform: uppercase; color: #cfc6b5; animation: aparecer 1s ease 1.2s both; }
+    .palavra {
+      margin-top: 14px; height: 2.4rem; font-family: 'Cormorant Garamond', serif; font-size: clamp(1.4rem, 4vw, 2rem);
+      font-style: italic; color: var(--creme); animation: aparecer 1s ease 1.5s both;
+    }
+    .palavra span { display: inline-block; color: var(--dourado-claro); }
+    .palavra span.troca { animation: troca .6s ease; }
+    @keyframes troca { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    @keyframes aparecer { from { opacity: 0; } to { opacity: 1; } }
+
+    .entrar {
+      margin-top: 30px; display: inline-block; padding: 16px 44px;
+      border: 1px solid var(--dourado); color: var(--creme); border-radius: 4px;
+      font-size: .8rem; font-weight: 500; letter-spacing: .26em; text-transform: uppercase;
+      position: relative; overflow: hidden; transition: color .3s;
+      animation: aparecer 1s ease 1.9s both;
+    }
+    .entrar::before { content: ""; position: absolute; inset: 0; background: var(--dourado); transform: translateX(-101%); transition: transform .35s ease; z-index: -1; }
+    .entrar:hover { color: #121214; }
+    .entrar:hover::before { transform: none; }
+    .entrar { z-index: 0; }
+
+    .auto { margin-top: 18px; font-size: .68rem; letter-spacing: .2em; color: #8c8579; animation: aparecer 1s ease 2.2s both; }
+    .barra { width: 140px; height: 2px; background: rgba(255,255,255,.12); margin: 8px auto 0; overflow: hidden; border-radius: 2px; }
+    .barra i { display: block; height: 100%; width: 0; background: var(--dourado); animation: encher 10s linear 2.2s forwards; }
+    @keyframes encher { to { width: 100%; } }
+
+    /* ===== Produtos a flutuar ===== */
+    .tile {
+      position: absolute; z-index: 2; width: var(--w, 190px); aspect-ratio: 4/5; border-radius: 14px;
+      background-size: cover; background-position: center 80%; background-repeat: no-repeat; background-color: #2a2a2e;
+      border: 1px solid rgba(201,164,106,.35); box-shadow: 0 25px 50px rgba(0,0,0,.55);
+      opacity: 0; animation: surgir 1.2s ease var(--d, 0s) forwards, flutuar var(--t, 7s) ease-in-out calc(var(--d, 0s) + 1.2s) infinite;
+    }
+    .tile::after {
+      content: attr(data-nome); position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 12px 10px;
+      font-size: .66rem; letter-spacing: .22em; text-transform: uppercase; text-align: center; color: #fff;
+      background: linear-gradient(transparent, rgba(0,0,0,.75)); border-radius: 0 0 14px 14px;
+    }
+    @keyframes surgir { from { opacity: 0; transform: translateY(60px) scale(.8) rotate(var(--r, 0deg)); } to { opacity: 1; transform: rotate(var(--r, 0deg)); } }
+    @keyframes flutuar { 0%,100% { transform: translateY(0) rotate(var(--r, 0deg)); } 50% { transform: translateY(-18px) rotate(calc(var(--r, 0deg) + 2deg)); } }
+
+    .t1 { top: 7%;  left: 6%;  --r: -7deg; --d: .4s; --t: 7s; }
+    .t2 { top: 10%; right: 7%; --r: 6deg;  --d: .7s; --t: 8s; --w: 170px; }
+    .t3 { top: 52%; left: 3%;  --r: 5deg;  --d: 1s;  --t: 7.5s; --w: 170px; }
+    .t4 { bottom: 6%; left: 22%; --r: -4deg; --d: 1.3s; --t: 6.5s; --w: 150px; }
+    .t5 { top: 50%; right: 4%; --r: -6deg; --d: 1.6s; --t: 8.5s; --w: 180px; }
+    .t6 { bottom: 5%; right: 21%; --r: 5deg; --d: 1.9s; --t: 7s; --w: 150px; }
+
+    /* ===== Saída suave ===== */
+    .saida { position: fixed; inset: 0; z-index: 50; background: var(--fundo); opacity: 0; pointer-events: none; transition: opacity .7s ease; }
+    .saida.ativa { opacity: 1; pointer-events: all; }
+
+    @media (max-width: 800px) {
+      .tile { --w: 110px !important; }
+      .t1 { top: 4%; left: 4%; } .t2 { top: 5%; right: 4%; }
+      .t3 { top: auto; bottom: 14%; left: 3%; } .t5 { top: auto; bottom: 15%; right: 3%; }
+      .t4, .t6 { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01s !important; animation-iteration-count: 1 !important; animation-delay: 0s !important; }
+      .barra i { animation: none; display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Produtos nossos (fotos da pasta IMG) -->
+  <div class="tile t1" data-nome="T-shirts" style="background-image:url('IMG/t-shirts.jpg')"></div>
+  <div class="tile t2" data-nome="Canecas" style="background-image:url('IMG/canecas.jpg')"></div>
+  <div class="tile t3" data-nome="Sweats" style="background-image:url('IMG/sweats.jpg')"></div>
+  <div class="tile t4" data-nome="Canetas" style="background-image:url('IMG/canetas.jpg')"></div>
+  <div class="tile t5" data-nome="Porta-chaves" style="background-image:url('IMG/porta%20chaves.jpg')"></div>
+  <div class="tile t6" data-nome="Guarda-chuvas" style="background-image:url('IMG/guarda-chuva.jpg')"></div>
+
+  <main class="centro">
+    <h1 class="logo" aria-label="DT Custom">
+      <span class="dt">DT</span>
+      <span class="custom">Custom</span>
+    </h1>
+    <div class="linha"></div>
+    <p class="slogan">Artigos personalizados</p>
+    <p class="palavra" aria-hidden="true">Personalizamos <span id="palavra">T-shirts</span></p>
+    <a href="site.html" class="entrar" id="entrar">Entrar no site</a>
+    <div class="auto">A entrar automaticamente<div class="barra"><i></i></div></div>
+  </main>
+
+  <div class="saida" id="saida"></div>
+
+  <script>
+    // Palavras que vão trocando
+    var palavras = ['T-shirts', 'Sweats', 'Canecas', 'Canetas', 'Porta-chaves', 'Guarda-chuvas', 'a sua marca'];
+    var i = 0, el = document.getElementById('palavra');
+    setInterval(function () {
+      i = (i + 1) % palavras.length;
+      el.textContent = palavras[i];
+      el.classList.remove('troca'); void el.offsetWidth; el.classList.add('troca');
+    }, 1700);
+
+    // Entrar no site com transição suave
+    var destino = 'site.html', a = false;
+    function entrar(e) {
+      if (e) e.preventDefault();
+      if (a) return; a = true;
+      document.getElementById('saida').classList.add('ativa');
+      setTimeout(function () { window.location.href = destino; }, 700);
+    }
+    document.getElementById('entrar').addEventListener('click', entrar);
+
+    // Entra sozinho ao fim de ~12 segundos (altere ou apague esta linha)
+    var timer = setTimeout(entrar, 12200);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Enter') { clearTimeout(timer); entrar(); } });
+  </script>
+</body>
+</html>
