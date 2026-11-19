@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Canetas personalizados | DT Custom</title>
-  <meta name="description" content="Canetas personalizados pela DT Custom. Canetas metálicas e foscas com o seu nome ou logótipo gravado. O brinde clássico para empresas, elegante e útil.">
+  <meta name="description" content="Canetas personalizados pela DT Custom. Canetas de alumínio, ecológicas e conjuntos de oferta, com o seu nome ou logótipo gravado. O brinde clássico para empresas, elegante e útil.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -21,19 +21,17 @@
       <button class="menu-btn" aria-label="Abrir menu" onclick="document.querySelector('.menu').classList.toggle('aberto')">☰</button>
       <ul class="menu">
         <li class="tem-sub">
-          <a href="../site.html#produtos" class="ativo">Produtos</a>
+          <a href="../site.html#mais-vendidos" class="ativo">Produtos</a>
           <ul class="submenu">
-            <li><a href="t-shirts.html" >T-shirts</a></li>
-            <li><a href="sweats.html" >Sweats</a></li>
+            <li><a href="t-shirts-e-sweats.html" >T-shirts e Sweats</a></li>
             <li><a href="canecas.html" >Canecas</a></li>
             <li><a href="canetas.html" class="ativo">Canetas</a></li>
+            <li><a href="cadernos.html" >Cadernos</a></li>
             <li><a href="porta-chaves.html" >Porta-chaves</a></li>
             <li><a href="guarda-chuvas.html" >Guarda-chuvas</a></li>
-            <li><a href="cadernos.html" >Cadernos</a></li>
-            <li><a href="saca-rolhas.html" >Saca-rolhas</a></li>
+            <li><a href="saca-rolhas.html" >Saca-rolhas e vinho</a></li>
           </ul>
         </li>
-        <li><a href="../site.html#processo">Como funciona</a></li>
         <li><a href="../site.html#sobre">Sobre nós</a></li>
         <li><a href="../site.html#contactos">Contactos</a></li>
       </ul>
@@ -42,59 +40,43 @@
 
   <section class="prod-hero">
     <div class="container">
-      <p class="migalhas"><a href="../site.html">Início</a> &nbsp;/&nbsp; <a href="../site.html#produtos">Produtos</a> &nbsp;/&nbsp; Canetas</p>
+      <p class="migalhas"><a href="../site.html">Início</a> &nbsp;/&nbsp; <a href="../site.html#mais-vendidos">Produtos</a> &nbsp;/&nbsp; Canetas</p>
       <div class="prod-grid">
         <div>
           <span class="tag">Personalizados</span>
           <h1>Canetas</h1>
-          <p>Canetas metálicas e foscas com o seu nome ou logótipo gravado. O brinde clássico para empresas, elegante e útil.</p>
+          <p>Canetas de alumínio, ecológicas e conjuntos de oferta, com o seu nome ou logótipo gravado. O brinde clássico para empresas, elegante e útil.</p>
           <div class="botoes">
-            <a href="../site.html?produto=Canetas#contactos" class="btn btn-principal">Pedir orçamento</a>
-            <a href="../site.html#produtos" class="btn btn-contorno">Todos os produtos</a>
+            <a href="#artigos" class="btn btn-principal">Ver artigos</a>
+            <a href="../site.html?produto=Canetas#contactos" class="btn btn-contorno">Pedir orçamento</a>
           </div>
         </div>
-        <div class="prod-foto" data-full="../IMG/canetas.jpg"><img src="../IMG/web/canetas.jpg" alt="Canetas personalizados DT Custom"></div>
+        <div class="prod-foto sel" data-full="../IMG/web/canetas.jpg"><img src="../IMG/web/canetas.jpg" alt="Canetas personalizados DT Custom"></div>
       </div>
     </div>
   </section>
 
-  
-
-  <section class="modelos"><div class="container"><span class="tag">Modelos e cores</span><h2>Escolha a caneta</h2><p class="nota">Desde modelos económicos a canetas de alumínio com chip NFC. Em todas pode personalizar o seu logótipo.</p><div class="tabela-wrap"><table class="tabela"><thead><tr><th>Modelo</th><th>Material</th><th>Características</th><th>Cores</th></tr></thead><tbody><tr><td><button type="button" class="ver-modelo" data-modelo="pindar" data-nome="Pindar">Pindar</button></td><td>Alumínio</td><td>Com chip NFC, carga jumbo</td><td>Azul-marinho, preto e prateado</td></tr><tr><td><button type="button" class="ver-modelo" data-modelo="narys" data-nome="Narys">Narys</button></td><td>—</td><td>Com chip NFC</td><td>Preto, azul-marinho e branco</td></tr><tr><td><button type="button" class="ver-modelo" data-modelo="cedris" data-nome="Cedris">Cedris</button></td><td>Alumínio</td><td>Carga jumbo, tinta preta</td><td>Branco e preto</td></tr><tr><td><button type="button" class="ver-modelo" data-modelo="pazan" data-nome="Pazan">Pazan</button></td><td>Alumínio</td><td>Tinta preta</td><td>Branco e preto</td></tr><tr><td><button type="button" class="ver-modelo" data-modelo="senar" data-nome="Senar">Senar</button></td><td>—</td><td>Tinta preta</td><td>Mais de 10 cores</td></tr><tr><td><button type="button" class="ver-modelo" data-modelo="negin" data-nome="Negin">Negin</button></td><td>—</td><td>Tinta preta</td><td>Branco e preto</td></tr><tr><td><button type="button" class="ver-modelo" data-modelo="rorin" data-nome="Rorin">Rorin</button></td><td>—</td><td>Tinta preta, pega confortável</td><td>Branco e preto</td></tr><tr><td><button type="button" class="ver-modelo" data-modelo="compo" data-nome="Compo">Compo</button></td><td>Cartão reciclado</td><td>Tinta preta</td><td>Várias cores</td></tr><tr><td><button type="button" class="ver-modelo" data-modelo="dinor" data-nome="Dinor">Dinor</button></td><td>ABS reciclado</td><td>—</td><td>Várias cores</td></tr><tr><td><button type="button" class="ver-modelo" data-modelo="wipper" data-nome="Wipper">Wipper</button></td><td>Palha de trigo</td><td>—</td><td>Várias cores</td></tr><tr><td><button type="button" class="ver-modelo" data-modelo="blacks" data-nome="Blacks">Blacks</button></td><td>—</td><td>—</td><td>Várias cores</td></tr><tr><td><button type="button" class="ver-modelo" data-modelo="licter" data-nome="Licter">Licter</button></td><td>—</td><td>Antibacteriana</td><td>Preto, verde e azul-marinho</td></tr><tr><td><button type="button" class="ver-modelo" data-modelo="kific" data-nome="Kific">Kific</button></td><td>—</td><td>Corpo branco com clip colorido</td><td>Várias cores</td></tr></tbody></table></div></div></section>
-
-  <section class="detalhes">
-    <div class="container">
-      <span class="tag">Detalhes</span>
-      <h2>O que pode personalizar</h2>
-      <div class="detalhes-grid">
-        <div class="detalhe"><h3>Gravação</h3><p>Texto ou logótipo gravado com boa definição.</p></div>
-        <div class="detalhe"><h3>Vários acabamentos</h3><p>Preto, azul-marinho e metal, com detalhes dourados ou prateados.</p></div>
-        <div class="detalhe"><h3>Estojo de oferta</h3><p>Opção de apresentação em caixa kraft para oferecer.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="outros">
-    <div class="container">
-      <span class="tag">Continue a explorar</span>
-      <h2>Outros produtos</h2>
-      <div class="outros-lista">
-        <a href="t-shirts.html">T-shirts</a>
-        <a href="sweats.html">Sweats</a>
-        <a href="canecas.html">Canecas</a>
-        <a href="porta-chaves.html">Porta-chaves</a>
-        <a href="guarda-chuvas.html">Guarda-chuvas</a>
-        <a href="cadernos.html">Cadernos</a>
-        <a href="saca-rolhas.html">Saca-rolhas</a>
-      </div>
-    </div>
-  </section>
+  <section class="artigos" id="artigos"><div class="container"><span class="tag">Os nossos artigos</span><h2>Canetas</h2><p class="nota">Toque num artigo para ver os detalhes.</p><div class="art-grid"><button type="button" class="art" data-grupo="Canetas" data-img="../IMG/modelos/taulf.jpg" data-titulo="Caneta com ponta tátil" data-info="Alumínio com acabamento em borracha|Medidas: comprimento 14,2 cm|Cores: branco, cinza, azul-marinho, preto, bordô e verde" data-cores=""><span class="art-img sel" style="background-image:url('../IMG/modelos/taulf.jpg')"></span><span class="art-tit">Caneta com ponta tátil</span><span class="art-sub">Alumínio com acabamento em borracha</span><span class="art-mais">Ver detalhes +</span></button><button type="button" class="art" data-grupo="Canetas" data-img="../IMG/modelos/raitox.jpg" data-titulo="Caneta de alumínio e cobre" data-info="Alumínio com detalhes cobre|Medidas: comprimento 13,8 cm|Cores: branco, cinza, azul-marinho, preto e verde" data-cores=""><span class="art-img sel" style="background-image:url('../IMG/modelos/raitox.jpg')"></span><span class="art-tit">Caneta de alumínio e cobre</span><span class="art-sub">Alumínio com detalhes cobre</span><span class="art-mais">Ver detalhes +</span></button><button type="button" class="art" data-grupo="Canetas" data-img="../IMG/modelos/mobex.jpg" data-titulo="Conjunto esferográfica e roller" data-info="Esferográfica e roller em estojo de oferta|Medidas: comprimento 14 cm|Cor: preto e prateado" data-cores=""><span class="art-img sel" style="background-image:url('../IMG/modelos/mobex.jpg')"></span><span class="art-tit">Conjunto esferográfica e roller</span><span class="art-sub">Esferográfica e roller em estojo de oferta</span><span class="art-mais">Ver detalhes +</span></button><button type="button" class="art" data-grupo="Canetas" data-img="../IMG/modelos/okafor.jpg" data-titulo="Conjunto de canetas ecológicas" data-info="Palha de trigo e bambu, em estojo|Medidas: comprimento 14 cm|Cores: azul, bege, preto, vermelho e verde" data-cores=""><span class="art-img sel" style="background-image:url('../IMG/modelos/okafor.jpg')"></span><span class="art-tit">Conjunto de canetas ecológicas</span><span class="art-sub">Palha de trigo e bambu, em estojo</span><span class="art-mais">Ver detalhes +</span></button><button type="button" class="art" data-grupo="Canetas" data-img="../IMG/modelos/tebel.jpg" data-titulo="Lápis eterno" data-info="Bambu, sem necessidade de afiar|Medidas: comprimento 13,7 cm|Cor: natural" data-cores=""><span class="art-img sel" style="background-image:url('../IMG/modelos/tebel.jpg')"></span><span class="art-tit">Lápis eterno</span><span class="art-sub">Bambu, sem necessidade de afiar</span><span class="art-mais">Ver detalhes +</span></button></div></div><script>window.CORES={ts:[["Preto","#1b1b1d"],["Cinza","#8b8d91"],["Azul-marinho","#1f2c47"],["Azul royal","#1d5fc2"],["Turquesa","#1fa3c4"],["Azul claro","#5ec3ea"],["Verde escuro","#1f4d34"],["Verde","#1e8a3c"],["Amarelo","#f2c500"],["Laranja","#f08a1c"],["Vermelho","#c8202b"],["Fúcsia","#c01c7c"],["Rosa","#f6c9d4"],["Branco","#ffffff"]],sw:[["Preto","#1b1b1d"],["Cinza","#8b8d91"],["Azul-marinho","#1f2c47"],["Verde escuro","#3f4a38"],["Azul royal","#1d5fc2"],["Azul claro","#8ac8ee"],["Verde militar","#4a5a3a"],["Verde","#1e8a3c"],["Bege","#d4bf98"],["Amarelo","#f2c500"],["Laranja","#f08a1c"],["Bordô","#6e1a2c"],["Vermelho","#c8202b"],["Rosa","#f6c9d4"],["Branco","#ffffff"]]};</script></section>
 
   <section class="cta">
     <div class="container">
       <h2>Quer Canetas com a sua marca?</h2>
       <p>Conte-nos a sua ideia e enviamos um orçamento sem compromisso.</p>
       <a href="../site.html?produto=Canetas#contactos" class="btn btn-principal">Pedir orçamento</a>
+    </div>
+  </section>
+
+  <section class="outros">
+    <div class="container">
+      <h2>Explore também</h2>
+      <div class="outros-lista">
+        <a href="t-shirts-e-sweats.html">T-shirts e Sweats</a>
+        <a href="canecas.html">Canecas</a>
+        <a href="cadernos.html">Cadernos</a>
+        <a href="porta-chaves.html">Porta-chaves</a>
+        <a href="guarda-chuvas.html">Guarda-chuvas</a>
+        <a href="saca-rolhas.html">Saca-rolhas e vinho</a>
+      </div>
     </div>
   </section>
 
@@ -108,44 +90,58 @@
 
   <div class="lightbox" id="lightbox"><button aria-label="Fechar">×</button><img alt=""></div>
 
-  <div class="modelo-pop" id="modeloPop" role="dialog" aria-modal="true" aria-label="Foto do modelo">
+  <!-- Janela de detalhe do artigo -->
+  <div class="modelo-pop" id="modeloPop" role="dialog" aria-modal="true" aria-label="Detalhe do artigo">
     <div class="modelo-card">
       <button type="button" class="modelo-fechar" aria-label="Fechar">×</button>
-      <div class="modelo-foto"><img id="modeloImg" alt=""><p id="modeloSem">Foto em breve</p></div>
-      <h3 id="modeloNome"></h3>
-      <a class="btn btn-principal" href="../site.html?produto=Canetas#contactos">Pedir orçamento</a>
+      <div class="modelo-foto sel"><img id="modeloImg" alt=""></div>
+      <div class="modelo-corpo">
+        <h3 id="modeloNome"></h3>
+        <ul id="modeloInfo" class="modelo-info"></ul>
+        <div id="modeloCores" class="modelo-cores"></div>
+        <a class="btn btn-principal" href="../site.html?produto=Canetas#contactos">Pedir orçamento</a>
+      </div>
     </div>
   </div>
 
   <script>
     document.getElementById('ano').textContent = new Date().getFullYear();
+
+    // Ampliar a foto principal
     var lb = document.getElementById('lightbox');
-    document.querySelectorAll('[data-full]').forEach(function (el) {
-      el.addEventListener('click', function () {
-        lb.querySelector('img').src = el.dataset.full;
-        lb.classList.add('aberto');
-      });
+    document.querySelectorAll('.prod-foto[data-full]').forEach(function (el) {
+      el.addEventListener('click', function () { lb.querySelector('img').src = el.dataset.full; lb.classList.add('aberto'); });
     });
     lb.addEventListener('click', function () { lb.classList.remove('aberto'); });
 
-    // Clicar no nome de um modelo abre uma pequena foto
+    // Separadores (filtro por grupo)
+    var abas = document.querySelectorAll('.aba');
+    abas.forEach(function (aba) {
+      aba.addEventListener('click', function () {
+        abas.forEach(function (a) { a.classList.remove('ativa'); });
+        aba.classList.add('ativa');
+        var g = aba.dataset.grupo;
+        document.querySelectorAll('.art').forEach(function (c) { c.style.display = (g === 'todos' || c.dataset.grupo === g) ? '' : 'none'; });
+      });
+    });
+
+    // Janela de detalhe
     var pop = document.getElementById('modeloPop');
-    var pImg = document.getElementById('modeloImg');
-    var pSem = document.getElementById('modeloSem');
     document.addEventListener('click', function (e) {
-      var b = e.target.closest('.ver-modelo');
+      var b = e.target.closest('.art');
       if (b) {
-        document.getElementById('modeloNome').textContent = b.dataset.nome;
-        pImg.style.display = 'none'; pSem.style.display = 'block';
-        pImg.onload = function () { pImg.style.display = 'block'; pSem.style.display = 'none'; };
-        pImg.onerror = function () { pImg.style.display = 'none'; pSem.style.display = 'block'; };
-        pImg.src = '../IMG/modelos/' + b.dataset.modelo + '.jpg';
+        document.getElementById('modeloNome').textContent = b.dataset.titulo;
+        document.getElementById('modeloImg').src = b.dataset.img;
+        var ul = document.getElementById('modeloInfo'); ul.innerHTML = '';
+        (b.dataset.info || '').split('|').forEach(function (t) { if (t) { var li = document.createElement('li'); li.textContent = t; ul.appendChild(li); } });
+        var cd = document.getElementById('modeloCores'); cd.innerHTML = '';
+        var lista = (window.CORES || {})[b.dataset.cores] || [];
+        lista.forEach(function (c) { var s = document.createElement('span'); s.className = 'bola'; s.title = c[0]; s.style.background = c[1]; cd.appendChild(s); });
         pop.classList.add('aberto');
         return;
       }
       if (e.target === pop || e.target.closest('.modelo-fechar')) pop.classList.remove('aberto');
     });
-
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { lb.classList.remove('aberto'); pop.classList.remove('aberto'); } });
   </script>
 </body>

@@ -1,0 +1,5 @@
+﻿FOTOS DOS MODELOS
+
+Cada ficheiro .jpg desta pasta e a foto que abre ao clicar no nome do modelo no site.
+O nome do ficheiro e o nome do modelo em minusculas (ex.: pindar.jpg).
+Para trocar uma foto, substitua o ficheiro mantendo o mesmo nome. NUNCA use imagens com precos.

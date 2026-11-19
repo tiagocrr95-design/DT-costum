@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DT Custom | Artigos Personalizados</title>
-  <meta name="description" content="DT Custom — artigos personalizados: garrafas, canecas, cadernos, sacos e brindes com a sua marca. Peça o seu orçamento.">
+  <meta name="description" content="DT Custom — artigos personalizados: t-shirts, sweats, canecas, canetas, guarda-chuvas e brindes com a sua marca. Peça o seu orçamento.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -70,6 +70,22 @@
     .produto { cursor: pointer; }
     .produto:not(.destaque) .texto::after { content: "Ver detalhes →"; display: block; margin-top: 14px; font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--dourado); font-weight: 600; }
 
+    html { scroll-padding-top: 90px; }
+    .sel { position: relative; }
+    /* Mais vendidos */
+    .tops { background: #fff; }
+    .tops-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 26px; margin-top: 50px; }
+    .top { background: var(--creme); border-radius: 14px; overflow: hidden; border: 1px solid rgba(176,141,87,.2); display: flex; flex-direction: column; transition: transform .25s, box-shadow .25s; }
+    .top:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(60,40,10,.12); }
+    .top-img { display: block; aspect-ratio: 4 / 3; background-size: cover; background-position: center; }
+    .etq { position: absolute; left: 14px; top: 14px; z-index: 2; background: var(--carvao); color: #fff; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; padding: 6px 13px; border-radius: 50px; }
+    .etq.ouro { background: var(--dourado); }
+    .top-corpo { padding: 22px 24px 26px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .top-corpo h3 { font-size: 1.5rem; }
+    .top-corpo p { color: var(--cinza); font-size: .9rem; flex: 1; }
+    .top-botoes { display: flex; align-items: center; gap: 18px; margin-top: 10px; flex-wrap: wrap; }
+    .top-botoes .btn { padding: 12px 24px; }
+    .top-botoes .ver { font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--dourado); font-weight: 600; }
     /* ============ HERO ============ */
     .hero { padding: 140px 0 90px; background: linear-gradient(180deg, var(--creme), var(--madeira)); }
     .hero-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 56px; align-items: center; }
@@ -102,12 +118,12 @@
     }
 
     /* ============ PRODUTOS ============ */
-    .produtos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 26px; margin-top: 56px; }
+    .produtos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 26px; margin-top: 56px; }
     .foto.sem-foto, .prod-foto.sem-foto { display: grid; place-items: center; background: linear-gradient(135deg, var(--madeira), var(--kraft)); }
     .foto.sem-foto span { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.5rem; color: #fff; }
     .produto { background: #fff; border-radius: 10px; overflow: hidden; transition: transform .3s, box-shadow .3s; border: 1px solid rgba(176,141,87,.18); }
     .produto:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(60,40,10,.12); }
-    .produto .foto { height: 320px; background-size: cover; background-position: center 82%; background-repeat: no-repeat; background-color: var(--madeira); }
+    .produto .foto { height: 320px; background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #f3e8d6; }
     .produto div.texto { padding: 26px 28px 30px; }
     .produto h3 { font-size: 1.6rem; margin-bottom: 6px; }
     .produto p { color: var(--cinza); font-size: .92rem; }
@@ -208,19 +224,17 @@
       <button class="menu-btn" aria-label="Abrir menu" onclick="document.querySelector('.menu').classList.toggle('aberto')">☰</button>
       <ul class="menu">
         <li class="tem-sub">
-          <a href="#produtos">Produtos</a>
+          <a href="#mais-vendidos">Produtos</a>
           <ul class="submenu">
-            <li><a href="produtos/t-shirts.html">T-shirts</a></li>
-            <li><a href="produtos/sweats.html">Sweats</a></li>
+            <li><a href="produtos/t-shirts-e-sweats.html">T-shirts e Sweats</a></li>
             <li><a href="produtos/canecas.html">Canecas</a></li>
             <li><a href="produtos/canetas.html">Canetas</a></li>
+            <li><a href="produtos/cadernos.html">Cadernos</a></li>
             <li><a href="produtos/porta-chaves.html">Porta-chaves</a></li>
             <li><a href="produtos/guarda-chuvas.html">Guarda-chuvas</a></li>
-            <li><a href="produtos/cadernos.html">Cadernos</a></li>
-            <li><a href="produtos/saca-rolhas.html">Saca-rolhas</a></li>
+            <li><a href="produtos/saca-rolhas.html">Saca-rolhas e vinho</a></li>
           </ul>
         </li>
-        <li><a href="#processo">Como funciona</a></li>
         <li><a href="#sobre">Sobre nós</a></li>
         <li><a href="#contactos">Contactos</a></li>
       </ul>
@@ -233,10 +247,10 @@
       <div>
         <span class="tag">Est. 2026 · Artigos personalizados</span>
         <h1>A sua marca,<br>em cada <em>detalhe.</em></h1>
-        <p>Garrafas, canecas, cadernos, sacos e muito mais, personalizados com elegância e atenção ao detalhe. Peças únicas para si, para o seu evento ou para a sua empresa.</p>
+        <p>T-shirts, sweats, canecas, canetas, guarda-chuvas e muito mais, personalizados com elegância e atenção ao detalhe. Peças únicas para si, para o seu evento ou para a sua empresa.</p>
         <div class="hero-botoes">
           <a href="#contactos" class="btn btn-principal">Pedir orçamento</a>
-          <a href="#produtos" class="btn btn-contorno">Ver produtos</a>
+          <a href="#mais-vendidos" class="btn btn-contorno">Ver produtos</a>
         </div>
       </div>
       <div class="hero-img">
@@ -254,49 +268,16 @@
   </div>
 
   <!-- ================= PRODUTOS ================= -->
-  <section id="produtos">
-    <div class="container">
-      <div class="centro">
-        <span class="tag">O que fazemos</span>
-        <h2>Os nossos produtos</h2>
-        <p class="subtitulo">Uma seleção de artigos que personalizamos com o seu logótipo, nome ou design.</p>
-      </div>
-      <div class="produtos-grid">
-        <article class="produto">
-          <div class="foto" data-full="IMG/t-shirts.jpg" style="background-image:url('IMG/web/t-shirts.jpg')"></div>
-          <div class="texto"><h3>T-shirts</h3><p>T-shirts em várias cores com estampagem ou vinil. Para equipas, eventos e marcas.</p></div>
-        </article>
-        <article class="produto">
-          <div class="foto" data-full="IMG/sweats.jpg" style="background-image:url('IMG/web/sweats.jpg')"></div>
-          <div class="texto"><h3>Sweats</h3><p>Sweats e hoodies personalizados, confortáveis e com acabamento premium.</p></div>
-        </article>
-        <article class="produto">
-          <div class="foto" data-full="IMG/canecas.jpg" style="background-image:url('IMG/web/canecas.jpg')"></div>
-          <div class="texto"><h3>Canecas</h3><p>Canecas brancas, pretas, azuis ou cinza com o seu logótipo ou frase.</p></div>
-        </article>
-        <article class="produto">
-          <div class="foto" data-full="IMG/canetas.jpg" style="background-image:url('IMG/web/canetas.jpg')"></div>
-          <div class="texto"><h3>Canetas</h3><p>Canetas metálicas e foscas com gravação. O brinde clássico para empresas.</p></div>
-        </article>
-        <article class="produto">
-          <div class="foto" data-full="IMG/porta%20chaves.jpg" style="background-image:url('IMG/web/porta-chaves.jpg')"></div>
-          <div class="texto"><h3>Porta-chaves</h3><p>Em pele, cortiça e bambu, com gravação personalizada. Há também abre-garrafas.</p></div>
-        </article>
-        <article class="produto">
-          <div class="foto" data-full="IMG/guarda-chuva.jpg" style="background-image:url('IMG/web/guarda-chuva.jpg')"></div>
-          <div class="texto"><h3>Guarda-chuvas</h3><p>Compactos ou clássicos, com o seu logótipo. Úteis em qualquer estação.</p></div>
-        </article>
-        <article class="produto">
-          <div class="foto" data-full="IMG/Cadernos.jpg" style="background-image:url('IMG/web/Cadernos.jpg')"></div>
-          <div class="texto"><h3>Cadernos</h3><p>Cadernos em várias cores e materiais, com o seu logótipo gravado em relevo. Elegantes e duradouros.</p></div>
-        </article>
-        <article class="produto">
-          <div class="foto sem-foto"><span>Foto em breve</span></div>
-          <div class="texto"><h3>Saca-rolhas</h3><p>Saca-rolhas de sommelier em aço, madeira, cortiça ou bambu, com abre-garrafas e o seu logótipo.</p></div>
-        </article>
-      </div>
-    </div>
-  </section>
+  <section id="mais-vendidos" class="tops"><div class="container"><div class="centro"><span class="tag">Sugestões rápidas</span><h2>Os mais vendidos</h2><p class="subtitulo">Escolhas certeiras para começar. Veja o artigo ou peça já o seu orçamento.</p></div><div class="tops-grid">
+        <article class="top"><a class="top-img sel" href="produtos/t-shirts-e-sweats.html" style="background-image:url('IMG/modelos/epika.jpg')"><span class="etq ouro">Mais vendido</span></a><div class="top-corpo"><h3>T-shirt de adulto</h3><p>Algodão ring spun, em 14 cores. Perfeita para equipas, eventos e marcas.</p><div class="top-botoes"><a class="btn btn-principal" href="?produto=T-shirts%20e%20Sweats#contactos">Pedir orçamento</a><a class="ver" href="produtos/t-shirts-e-sweats.html">Ver artigo →</a></div></div></article>
+        <article class="top"><a class="top-img sel" href="produtos/t-shirts-e-sweats.html" style="background-image:url('IMG/modelos/cosmos.jpg')"><span class="etq ouro">Mais vendido</span></a><div class="top-corpo"><h3>Sweat de gola redonda</h3><p>Confortável e encorpada, em 15 cores. Uma escolha segura para oferecer.</p><div class="top-botoes"><a class="btn btn-principal" href="?produto=T-shirts%20e%20Sweats#contactos">Pedir orçamento</a><a class="ver" href="produtos/t-shirts-e-sweats.html">Ver artigo →</a></div></div></article>
+        <article class="top"><a class="top-img sel" href="produtos/canecas.html" style="background-image:url('IMG/modelos/cotes.jpg')"><span class="etq">Sugestão</span></a><div class="top-corpo"><h3>Caneca com colher</h3><p>Cerâmica com interior colorido. Uma prenda simples e muito apreciada.</p><div class="top-botoes"><a class="btn btn-principal" href="?produto=Canecas#contactos">Pedir orçamento</a><a class="ver" href="produtos/canecas.html">Ver artigo →</a></div></div></article>
+        <article class="top"><a class="top-img sel" href="produtos/canetas.html" style="background-image:url('IMG/modelos/mobex.jpg')"><span class="etq">Sugestão</span></a><div class="top-corpo"><h3>Conjunto esferográfica e roller</h3><p>Esferográfica e roller em estojo de oferta. O brinde elegante para empresas.</p><div class="top-botoes"><a class="btn btn-principal" href="?produto=Canetas#contactos">Pedir orçamento</a><a class="ver" href="produtos/canetas.html">Ver artigo →</a></div></div></article>
+        <article class="top"><a class="top-img sel" href="produtos/saca-rolhas.html" style="background-image:url('IMG/modelos/boriax.jpg')"><span class="etq">Sugestão</span></a><div class="top-corpo"><h3>Conjunto de vinho</h3><p>Caixa de bambu com saca-rolhas e acessórios. Ideal para presentes corporativos.</p><div class="top-botoes"><a class="btn btn-principal" href="?produto=Saca-rolhas%20e%20vinho#contactos">Pedir orçamento</a><a class="ver" href="produtos/saca-rolhas.html">Ver artigo →</a></div></div></article>
+        <article class="top"><a class="top-img sel" href="produtos/cadernos.html" style="background-image:url('IMG/modelos/gasmon.jpg')"><span class="etq">Sugestão</span></a><div class="top-corpo"><h3>Caderno de bambu</h3><p>Bambu e tecido reciclado, com espiral. Sustentável e com o seu logótipo na capa.</p><div class="top-botoes"><a class="btn btn-principal" href="?produto=Cadernos#contactos">Pedir orçamento</a><a class="ver" href="produtos/cadernos.html">Ver artigo →</a></div></div></article>
+      </div></div></section>
+
+  
 
   <!-- ================= COMO FUNCIONA ================= -->
   <section class="processo" id="processo">
@@ -345,7 +326,7 @@
         <div>
           <!-- ALTERE OS SEUS DADOS DE CONTACTO AQUI -->
           <div class="info-item"><h4>Telefone / WhatsApp</h4><a href="tel:+351939630618">+351 939 630 618</a><br><a href="tel:+351911981913">+351 911 981 913</a></div>
-          <div class="info-item"><h4>Email</h4><a href="mailto:geral@dtcustom.pt">geral@dtcustom.pt</a></div>
+          <div class="info-item"><h4>Email</h4><a href="mailto:dtcustom@outlook.pt">dtcustom@outlook.pt</a></div>
           <div class="info-item"><h4>Loja</h4><p>100% online<br>Envios para todo o país</p></div>
           <div class="info-item"><h4>Atendimento</h4><p>Respondemos por email e WhatsApp<br>Seg – Dom, 09h00 – 18h00</p></div>
         </div>
@@ -360,14 +341,13 @@
             <div>
               <label for="produto">Produto</label>
               <select id="produto">
-                <option>T-shirts</option>
-                <option>Sweats</option>
+                <option>T-shirts e Sweats</option>
                 <option>Canecas</option>
                 <option>Canetas</option>
+                <option>Cadernos</option>
                 <option>Porta-chaves</option>
                 <option>Guarda-chuvas</option>
-                <option>Cadernos</option>
-                <option>Saca-rolhas</option>
+                <option>Saca-rolhas e vinho</option>
                 <option>Outro</option>
               </select>
             </div>
@@ -429,7 +409,7 @@
     });
 
     // Formulário: abre o email do cliente com o pedido preenchido (ALTERE o email de destino)
-    var EMAIL_DESTINO = 'geral@dtcustom.pt';
+    var EMAIL_DESTINO = 'dtcustom@outlook.pt';
 
     document.getElementById('formulario').addEventListener('submit', function (e) {
       e.preventDefault();

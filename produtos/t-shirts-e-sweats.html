@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T-shirts e Sweats personalizados | DT Custom</title>
+  <meta name="description" content="T-shirts e Sweats personalizados pela DT Custom. T-shirts, sweats e hoodies em várias cores, personalizados com o seu design, logótipo ou frase. Ideais para equipas, eventos, empresas ou para oferecer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+  <header>
+    <nav class="container nav">
+      <a href="../site.html" class="logo" aria-label="DT Custom">
+        <b>DT<small>CUSTOM</small></b>
+        <span>ARTIGOS PERSONALIZADOS</span>
+      </a>
+      <button class="menu-btn" aria-label="Abrir menu" onclick="document.querySelector('.menu').classList.toggle('aberto')">☰</button>
+      <ul class="menu">
+        <li class="tem-sub">
+          <a href="../site.html#mais-vendidos" class="ativo">Produtos</a>
+          <ul class="submenu">
+            <li><a href="t-shirts-e-sweats.html" class="ativo">T-shirts e Sweats</a></li>
+            <li><a href="canecas.html" >Canecas</a></li>
+            <li><a href="canetas.html" >Canetas</a></li>
+            <li><a href="cadernos.html" >Cadernos</a></li>
+            <li><a href="porta-chaves.html" >Porta-chaves</a></li>
+            <li><a href="guarda-chuvas.html" >Guarda-chuvas</a></li>
+            <li><a href="saca-rolhas.html" >Saca-rolhas e vinho</a></li>
+          </ul>
+        </li>
+        <li><a href="../site.html#sobre">Sobre nós</a></li>
+        <li><a href="../site.html#contactos">Contactos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="prod-hero">
+    <div class="container">
+      <p class="migalhas"><a href="../site.html">Início</a> &nbsp;/&nbsp; <a href="../site.html#mais-vendidos">Produtos</a> &nbsp;/&nbsp; T-shirts e Sweats</p>
+      <div class="prod-grid">
+        <div>
+          <span class="tag">Personalizados</span>
+          <h1>T-shirts e Sweats</h1>
+          <p>T-shirts, sweats e hoodies em várias cores, personalizados com o seu design, logótipo ou frase. Ideais para equipas, eventos, empresas ou para oferecer.</p>
+          <div class="botoes">
+            <a href="#artigos" class="btn btn-principal">Ver artigos</a>
+            <a href="../site.html?produto=T-shirts%20e%20Sweats#contactos" class="btn btn-contorno">Pedir orçamento</a>
+          </div>
+        </div>
+        <div class="prod-foto sel" data-full="../IMG/web/t-shirts.jpg"><img src="../IMG/web/t-shirts.jpg" alt="T-shirts e Sweats personalizados DT Custom"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="artigos" id="artigos"><div class="container"><span class="tag">Os nossos artigos</span><h2>T-shirts e Sweats</h2><p class="nota">Toque num artigo para ver os detalhes. Aplicação por impressão DTF, com cores vivas e boa definição.</p><div class="abas"><button type="button" class="aba ativa" data-grupo="todos">Todos</button><button type="button" class="aba" data-grupo="T-shirts">T-shirts</button><button type="button" class="aba" data-grupo="Sweats">Sweats</button></div><div class="art-grid"><button type="button" class="art" data-grupo="T-shirts" data-img="../IMG/modelos/epika.jpg" data-titulo="T-shirt de adulto" data-info="Algodão ring spun, 150 g/m²|Tamanhos: S a 3XL" data-cores="ts"><span class="art-img sel" style="background-image:url('../IMG/modelos/epika.jpg')"></span><span class="art-tit">T-shirt de adulto</span><span class="art-sub">Algodão ring spun, 150 g/m²</span><span class="art-mais">Ver detalhes +</span></button><button type="button" class="art" data-grupo="Sweats" data-img="../IMG/modelos/astro.jpg" data-titulo="Sweat com capuz e fecho" data-info="Algodão e poliéster, 280 g/m²|Tamanhos: XS a 4XL" data-cores="sw"><span class="art-img sel" style="background-image:url('../IMG/modelos/astro.jpg')"></span><span class="art-tit">Sweat com capuz e fecho</span><span class="art-sub">Algodão e poliéster, 280 g/m²</span><span class="art-mais">Ver detalhes +</span></button><button type="button" class="art" data-grupo="Sweats" data-img="../IMG/modelos/cosmos.jpg" data-titulo="Sweat de gola redonda" data-info="Algodão e poliéster, 280 g/m²|Tamanhos: XS a 4XL" data-cores="sw"><span class="art-img sel" style="background-image:url('../IMG/modelos/cosmos.jpg')"></span><span class="art-tit">Sweat de gola redonda</span><span class="art-sub">Algodão e poliéster, 280 g/m²</span><span class="art-mais">Ver detalhes +</span></button><button type="button" class="art" data-grupo="Sweats" data-img="../IMG/modelos/draco.jpg" data-titulo="Sweat com capuz" data-info="Algodão e poliéster, 280 g/m²|Tamanhos: XS a 4XL" data-cores="sw"><span class="art-img sel" style="background-image:url('../IMG/modelos/draco.jpg')"></span><span class="art-tit">Sweat com capuz</span><span class="art-sub">Algodão e poliéster, 280 g/m²</span><span class="art-mais">Ver detalhes +</span></button></div></div><script>window.CORES={ts:[["Preto","#1b1b1d"],["Cinza","#8b8d91"],["Azul-marinho","#1f2c47"],["Azul royal","#1d5fc2"],["Turquesa","#1fa3c4"],["Azul claro","#5ec3ea"],["Verde escuro","#1f4d34"],["Verde","#1e8a3c"],["Amarelo","#f2c500"],["Laranja","#f08a1c"],["Vermelho","#c8202b"],["Fúcsia","#c01c7c"],["Rosa","#f6c9d4"],["Branco","#ffffff"]],sw:[["Preto","#1b1b1d"],["Cinza","#8b8d91"],["Azul-marinho","#1f2c47"],["Verde escuro","#3f4a38"],["Azul royal","#1d5fc2"],["Azul claro","#8ac8ee"],["Verde militar","#4a5a3a"],["Verde","#1e8a3c"],["Bege","#d4bf98"],["Amarelo","#f2c500"],["Laranja","#f08a1c"],["Bordô","#6e1a2c"],["Vermelho","#c8202b"],["Rosa","#f6c9d4"],["Branco","#ffffff"]]};</script></section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Quer T-shirts e Sweats com a sua marca?</h2>
+      <p>Conte-nos a sua ideia e enviamos um orçamento sem compromisso.</p>
+      <a href="../site.html?produto=T-shirts%20e%20Sweats#contactos" class="btn btn-principal">Pedir orçamento</a>
+    </div>
+  </section>
+
+  <section class="outros">
+    <div class="container">
+      <h2>Explore também</h2>
+      <div class="outros-lista">
+        <a href="canecas.html">Canecas</a>
+        <a href="canetas.html">Canetas</a>
+        <a href="cadernos.html">Cadernos</a>
+        <a href="porta-chaves.html">Porta-chaves</a>
+        <a href="guarda-chuvas.html">Guarda-chuvas</a>
+        <a href="saca-rolhas.html">Saca-rolhas e vinho</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© <span id="ano"></span> DT Custom · Artigos Personalizados. Todos os direitos reservados.</div>
+  </footer>
+
+  <a class="whatsapp" href="https://wa.me/351939630618" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1112 21.8zM12 0a12 12 0 00-10.3 18.1L0 24l6.1-1.6A12 12 0 1012 0z"/></svg>
+  </a>
+
+  <div class="lightbox" id="lightbox"><button aria-label="Fechar">×</button><img alt=""></div>
+
+  <!-- Janela de detalhe do artigo -->
+  <div class="modelo-pop" id="modeloPop" role="dialog" aria-modal="true" aria-label="Detalhe do artigo">
+    <div class="modelo-card">
+      <button type="button" class="modelo-fechar" aria-label="Fechar">×</button>
+      <div class="modelo-foto sel"><img id="modeloImg" alt=""></div>
+      <div class="modelo-corpo">
+        <h3 id="modeloNome"></h3>
+        <ul id="modeloInfo" class="modelo-info"></ul>
+        <div id="modeloCores" class="modelo-cores"></div>
+        <a class="btn btn-principal" href="../site.html?produto=T-shirts%20e%20Sweats#contactos">Pedir orçamento</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('ano').textContent = new Date().getFullYear();
+
+    // Ampliar a foto principal
+    var lb = document.getElementById('lightbox');
+    document.querySelectorAll('.prod-foto[data-full]').forEach(function (el) {
+      el.addEventListener('click', function () { lb.querySelector('img').src = el.dataset.full; lb.classList.add('aberto'); });
+    });
+    lb.addEventListener('click', function () { lb.classList.remove('aberto'); });
+
+    // Separadores (filtro por grupo)
+    var abas = document.querySelectorAll('.aba');
+    abas.forEach(function (aba) {
+      aba.addEventListener('click', function () {
+        abas.forEach(function (a) { a.classList.remove('ativa'); });
+        aba.classList.add('ativa');
+        var g = aba.dataset.grupo;
+        document.querySelectorAll('.art').forEach(function (c) { c.style.display = (g === 'todos' || c.dataset.grupo === g) ? '' : 'none'; });
+      });
+    });
+
+    // Janela de detalhe
+    var pop = document.getElementById('modeloPop');
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest('.art');
+      if (b) {
+        document.getElementById('modeloNome').textContent = b.dataset.titulo;
+        document.getElementById('modeloImg').src = b.dataset.img;
+        var ul = document.getElementById('modeloInfo'); ul.innerHTML = '';
+        (b.dataset.info || '').split('|').forEach(function (t) { if (t) { var li = document.createElement('li'); li.textContent = t; ul.appendChild(li); } });
+        var cd = document.getElementById('modeloCores'); cd.innerHTML = '';
+        var lista = (window.CORES || {})[b.dataset.cores] || [];
+        lista.forEach(function (c) { var s = document.createElement('span'); s.className = 'bola'; s.title = c[0]; s.style.background = c[1]; cd.appendChild(s); });
+        pop.classList.add('aberto');
+        return;
+      }
+      if (e.target === pop || e.target.closest('.modelo-fechar')) pop.classList.remove('aberto');
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { lb.classList.remove('aberto'); pop.classList.remove('aberto'); } });
+  </script>
+</body>
+</html>
