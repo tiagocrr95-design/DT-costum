@@ -5,11 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DT Custom | Artigos Personalizados</title>
   <meta name="description" content="DT Custom — artigos personalizados: t-shirts, sweats, canecas, canetas, guarda-chuvas e brindes com a sua marca. Peça o seu orçamento.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232a2a2e'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' font-weight='700' text-anchor='middle' fill='%23b08d57'%3EDT%3C/text%3E%3C/svg%3E">
+  <meta name="theme-color" content="#2a2a2e">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_PT">
+  <meta property="og:site_name" content="DT Custom">
+  <meta property="og:title" content="DT Custom | Artigos Personalizados">
+  <meta property="og:description" content="T-shirts, sweats, canecas, canetas, guarda-chuvas e brindes com a sua marca. Maquete antes da produção e orçamento sem compromisso.">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"DT Custom","description":"Artigos personalizados: t-shirts, sweats, canecas, canetas, guarda-chuvas e brindes.","email":"dtcustom@outlook.pt","telephone":"+351939630618","areaServed":"PT","sameAs":["https://www.instagram.com/dtcustom2026/"]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Como peço um orçamento?","acceptedAnswer":{"@type":"Answer","text":"Preencha o formulário ou fale connosco por WhatsApp ou email, indicando o produto, a quantidade e a sua ideia ou logótipo. Enviamos uma proposta sem compromisso."}},
+    {"@type":"Question","name":"Qual é a quantidade mínima?","acceptedAnswer":{"@type":"Answer","text":"Trabalhamos desde uma única peça até grandes encomendas. Diga-nos a quantidade e indicamos as condições no orçamento."}},
+    {"@type":"Question","name":"Que ficheiro de logótipo devo enviar?","acceptedAnswer":{"@type":"Answer","text":"O ideal é um ficheiro vetorial (SVG, AI ou PDF) ou um PNG de alta resolução com fundo transparente. Se só tiver uma imagem simples, envie-a na mesma e avaliamos."}},
+    {"@type":"Question","name":"Vou ver como fica antes de produzirem?","acceptedAnswer":{"@type":"Answer","text":"Sim. Enviamos uma maquete digital para aprovação antes de iniciar a produção."}},
+    {"@type":"Question","name":"Qual é o prazo de entrega?","acceptedAnswer":{"@type":"Answer","text":"O prazo depende do produto e da quantidade e é indicado no orçamento, antes de confirmar a encomenda."}},
+    {"@type":"Question","name":"Fazem envios para todo o país?","acceptedAnswer":{"@type":"Answer","text":"Sim. Somos uma loja 100% online e enviamos para a morada que indicar, em todo o país."}}
+  ]}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
+    /* ============ FAQ ============ */
+    .faq { background: #fff; }
+    .faq-lista { max-width: 780px; margin: 50px auto 0; display: grid; gap: 12px; }
+    .faq details { background: var(--creme); border: 1px solid rgba(176,141,87,.25); border-radius: 10px; padding: 0 24px; }
+    .faq summary { cursor: pointer; list-style: none; padding: 20px 0; font-weight: 600; color: var(--carvao); display: flex; justify-content: space-between; gap: 16px; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; color: var(--dourado); font-size: 1.4rem; line-height: 1; }
+    .faq details[open] summary::after { content: "–"; }
+    .faq details p { color: #5f5c56; padding-bottom: 20px; font-size: .94rem; }
+    .faq-cta { text-align: center; margin-top: 36px; }
+
+    /* ============ FORMULÁRIO: estados ============ */
+    .form-estado { padding: 14px 16px; border-radius: var(--raio); font-size: .9rem; display: none; }
+    .form-estado.ok { display: block; background: rgba(37,211,102,.14); border: 1px solid rgba(37,211,102,.5); color: #d7f7e3; }
+    .form-estado.erro { display: block; background: rgba(200,32,43,.15); border: 1px solid rgba(255,120,120,.5); color: #ffd6d6; }
+    .form-botoes { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .btn-wa { background: transparent; border-color: rgba(255,255,255,.35); color: #fff; }
+    .btn-wa:hover { background: #25d366; border-color: #25d366; color: #fff; }
+    .campo-mel { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    button:disabled { opacity: .6; cursor: wait; }
+    .btn:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid var(--dourado); outline-offset: 3px; }
+
     /* ============ CORES (inspiradas na imagem de layout) ============ */
     :root {
       --creme: #faf6ef;
@@ -19,8 +61,9 @@
       --marinho: #1f2c47;
       --carvao: #2a2a2e;
       --texto: #3a3a40;
-      --cinza: #7a7872;
+      --cinza: #66645e;
       --raio: 6px;
+      --dourado-txt: #85673a;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -33,7 +76,7 @@
 
     h1, h2, h3 { font-family: 'Cormorant Garamond', serif; color: var(--carvao); font-weight: 600; line-height: 1.15; }
     h2 { font-size: clamp(2rem, 4.5vw, 3rem); margin-bottom: 14px; }
-    .tag { display: block; font-size: .75rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--dourado); margin-bottom: 14px; }
+    .tag { display: block; font-size: .75rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--dourado-txt); margin-bottom: 14px; }
     .subtitulo { color: var(--cinza); max-width: 600px; }
     .centro { text-align: center; }
     .centro .subtitulo { margin-inline: auto; }
@@ -67,8 +110,6 @@
     .menu > li:hover .submenu, .menu > li:focus-within .submenu { opacity: 1; visibility: visible; transform: none; }
     .submenu a { display: block; padding: 9px 22px; font-size: .74rem; }
     .submenu a:hover { background: var(--creme); }
-    .produto { cursor: pointer; }
-    .produto:not(.destaque) .texto::after { content: "Ver detalhes →"; display: block; margin-top: 14px; font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--dourado); font-weight: 600; }
 
     html { scroll-padding-top: 90px; }
     .sel { position: relative; }
@@ -85,10 +126,11 @@
     .top-corpo p { color: var(--cinza); font-size: .9rem; flex: 1; }
     .top-botoes { display: flex; align-items: center; gap: 18px; margin-top: 10px; flex-wrap: wrap; }
     .top-botoes .btn { padding: 12px 24px; }
-    .top-botoes .ver { font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--dourado); font-weight: 600; }
+    .top-botoes .ver { font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--dourado-txt); font-weight: 600; }
     /* ============ HERO ============ */
     .hero { padding: 140px 0 90px; background: linear-gradient(180deg, var(--creme), var(--madeira)); }
     .hero-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 56px; align-items: center; }
+    .hero-grid > * { min-width: 0; }
     .hero h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); margin-bottom: 20px; }
     .hero h1 em { color: var(--dourado); font-style: italic; }
     .hero p { color: var(--cinza); max-width: 440px; margin-bottom: 34px; }
@@ -109,40 +151,6 @@
     .faixa .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px 30px; font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; }
     .faixa span::before { content: "◆"; color: var(--dourado); margin-right: 10px; font-size: .6rem; }
 
-    /* ============ IMAGENS RECORTADAS DA FOTO ============ */
-    .recorte {
-      background-image: url('IMG/DT%20custom%20layout.jpg');
-      background-repeat: no-repeat;
-      background-size: 380% auto;
-      background-color: var(--madeira);
-    }
-
-    /* ============ PRODUTOS ============ */
-    .produtos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 26px; margin-top: 56px; }
-    .foto.sem-foto, .prod-foto.sem-foto { display: grid; place-items: center; background: linear-gradient(135deg, var(--madeira), var(--kraft)); }
-    .foto.sem-foto span { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.5rem; color: #fff; }
-    .produto { background: #fff; border-radius: 10px; overflow: hidden; transition: transform .3s, box-shadow .3s; border: 1px solid rgba(176,141,87,.18); }
-    .produto:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(60,40,10,.12); }
-    .produto .foto { height: 320px; background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #f3e8d6; }
-    .produto div.texto { padding: 26px 28px 30px; }
-    .produto h3 { font-size: 1.6rem; margin-bottom: 6px; }
-    .produto p { color: var(--cinza); font-size: .92rem; }
-
-    /* Cartão em destaque (Cadernos): ocupa a linha toda */
-    .produto.destaque { grid-column: 1 / -1; display: grid; grid-template-columns: 1.5fr 1fr; align-items: stretch; }
-    .produto.destaque .foto { height: 100%; min-height: 380px; background-size: cover !important; background-position: center !important; }
-    .produto.destaque .texto { display: flex; flex-direction: column; justify-content: center; padding: 40px; }
-    .produto.destaque h3 { font-size: 2.2rem; }
-    .produto.destaque p { font-size: 1rem; margin-bottom: 22px; }
-    .produto.destaque .btn { align-self: flex-start; }
-    @media (max-width: 800px) { .produto.destaque { grid-template-columns: 1fr; } .produto.destaque .foto { min-height: 280px; } .produto.destaque .texto { padding: 26px 28px 30px; } }
-
-    /* Ampliar foto (resolução total) */
-    .lightbox { position: fixed; inset: 0; z-index: 200; background: rgba(15,15,18,.92); display: none; align-items: center; justify-content: center; padding: 20px; cursor: zoom-out; }
-    .lightbox.aberto { display: flex; }
-    .lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 6px; }
-    .lightbox button { position: absolute; top: 14px; right: 20px; background: none; border: none; color: #fff; font-size: 2.4rem; cursor: pointer; line-height: 1; }
-
     /* ============ PROCESSO ============ */
     .processo { background: var(--madeira); }
     .passos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 36px; margin-top: 56px; counter-reset: passo; }
@@ -153,7 +161,8 @@
 
     /* ============ SOBRE ============ */
     .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-    .sobre-img { height: 520px; border-radius: 10px; background: #1a1a1c url('IMG/Gemini_Generated_Image_ebyib9ebyib9ebyi.jpg') center / cover no-repeat; box-shadow: 0 30px 60px rgba(60,40,10,.18); }
+    .sobre-video { display: flex; justify-content: center; align-items: center; line-height: 0; }
+    .sobre-video video { display: block; height: 600px; width: auto; max-width: 100%; border-radius: 22px; background: #1a1a1c; box-shadow: 0 30px 60px rgba(60,40,10,.22); border: 6px solid #fff; }
     .sobre-texto p { color: var(--cinza); margin-bottom: 16px; }
     .vantagens { list-style: none; margin-top: 22px; }
     .vantagens li { padding-left: 30px; position: relative; margin-bottom: 10px; font-weight: 500; }
@@ -189,7 +198,10 @@
     .redes svg { width: 17px; height: 17px; fill: #fff; }
 
     .whatsapp { position: fixed; right: 20px; bottom: 20px; z-index: 99; width: 58px; height: 58px; border-radius: 50%; background: #25d366; display: grid; place-items: center; box-shadow: 0 8px 20px rgba(0,0,0,.25); transition: transform .2s; }
-    .whatsapp:hover { transform: scale(1.08); }
+    .instagram-flut { position: fixed; right: 20px; bottom: 90px; z-index: 99; width: 58px; height: 58px; border-radius: 50%; background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); display: grid; place-items: center; box-shadow: 0 8px 20px rgba(0,0,0,.25); transition: transform .2s; }
+.instagram-flut:hover { transform: scale(1.08); }
+.instagram-flut svg { width: 28px; height: 28px; fill: #fff; }
+.whatsapp:hover { transform: scale(1.08); }
     .whatsapp svg { width: 30px; height: 30px; fill: #fff; }
 
     /* ============ TELEMÓVEL ============ */
@@ -205,7 +217,7 @@
       .menu.aberto { max-height: 80vh; overflow-y: auto; }
       .hero { padding-top: 120px; }
       .hero-grid, .sobre-grid, .contactos-grid { grid-template-columns: 1fr; }
-      .sobre-img { height: 360px; }
+      .sobre-video video { height: auto; width: min(100%, 320px); }
       .linha { grid-template-columns: 1fr; }
       form { padding: 24px; }
       .faixa .container { justify-content: center; text-align: center; }
@@ -221,8 +233,8 @@
         <b>DT<small>CUSTOM</small></b>
         <span>ARTIGOS PERSONALIZADOS</span>
       </a>
-      <button class="menu-btn" aria-label="Abrir menu" onclick="document.querySelector('.menu').classList.toggle('aberto')">☰</button>
-      <ul class="menu">
+      <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu" id="menuBtn">☰</button>
+      <ul class="menu" id="menu">
         <li class="tem-sub">
           <a href="#mais-vendidos">Produtos</a>
           <ul class="submenu">
@@ -236,6 +248,7 @@
           </ul>
         </li>
         <li><a href="#sobre">Sobre nós</a></li>
+        <li><a href="#faq">Perguntas</a></li>
         <li><a href="#contactos">Contactos</a></li>
       </ul>
     </nav>
@@ -254,7 +267,7 @@
         </div>
       </div>
       <div class="hero-img">
-        <img src="IMG/web/sweat_homem.jpg" alt="Sweat azul-marinho personalizada DT Custom">
+        <img src="IMG/web/sweat_homem.jpg" width="1600" height="1195" fetchpriority="high" decoding="async" alt="Sweat azul-marinho personalizada DT Custom">
       </div>
     </div>
   </section>
@@ -263,18 +276,18 @@
     <div class="container">
       <span>Gravação &amp; estampagem</span>
       <span>Maquete antes da produção</span>
-      <span>Loja online · Envios para todo o país</span>
+      <span>Orçamento online · Envios para todo o país</span>
     </div>
   </div>
 
   <!-- ================= PRODUTOS ================= -->
   <section id="mais-vendidos" class="tops"><div class="container"><div class="centro"><span class="tag">Sugestões rápidas</span><h2>Os mais vendidos</h2><p class="subtitulo">Escolhas certeiras para começar. Veja o artigo ou peça já o seu orçamento.</p></div><div class="tops-grid">
-        <article class="top"><a class="top-img sel" href="produtos/t-shirts-e-sweats.html" style="background-image:url('IMG/modelos/epika.jpg')"><span class="etq ouro">Mais vendido</span></a><div class="top-corpo"><h3>T-shirt de adulto</h3><p>Algodão ring spun, em 14 cores. Perfeita para equipas, eventos e marcas.</p><div class="top-botoes"><a class="btn btn-principal" href="?produto=T-shirts%20e%20Sweats#contactos">Pedir orçamento</a><a class="ver" href="produtos/t-shirts-e-sweats.html">Ver artigo →</a></div></div></article>
-        <article class="top"><a class="top-img sel" href="produtos/t-shirts-e-sweats.html" style="background-image:url('IMG/modelos/cosmos.jpg')"><span class="etq ouro">Mais vendido</span></a><div class="top-corpo"><h3>Sweat de gola redonda</h3><p>Confortável e encorpada, em 15 cores. Uma escolha segura para oferecer.</p><div class="top-botoes"><a class="btn btn-principal" href="?produto=T-shirts%20e%20Sweats#contactos">Pedir orçamento</a><a class="ver" href="produtos/t-shirts-e-sweats.html">Ver artigo →</a></div></div></article>
-        <article class="top"><a class="top-img sel" href="produtos/canecas.html" style="background-image:url('IMG/modelos/cotes.jpg')"><span class="etq">Sugestão</span></a><div class="top-corpo"><h3>Caneca com colher</h3><p>Cerâmica com interior colorido. Uma prenda simples e muito apreciada.</p><div class="top-botoes"><a class="btn btn-principal" href="?produto=Canecas#contactos">Pedir orçamento</a><a class="ver" href="produtos/canecas.html">Ver artigo →</a></div></div></article>
-        <article class="top"><a class="top-img sel" href="produtos/canetas.html" style="background-image:url('IMG/modelos/mobex.jpg')"><span class="etq">Sugestão</span></a><div class="top-corpo"><h3>Conjunto esferográfica e roller</h3><p>Esferográfica e roller em estojo de oferta. O brinde elegante para empresas.</p><div class="top-botoes"><a class="btn btn-principal" href="?produto=Canetas#contactos">Pedir orçamento</a><a class="ver" href="produtos/canetas.html">Ver artigo →</a></div></div></article>
-        <article class="top"><a class="top-img sel" href="produtos/saca-rolhas.html" style="background-image:url('IMG/modelos/boriax.jpg')"><span class="etq">Sugestão</span></a><div class="top-corpo"><h3>Conjunto de vinho</h3><p>Caixa de bambu com saca-rolhas e acessórios. Ideal para presentes corporativos.</p><div class="top-botoes"><a class="btn btn-principal" href="?produto=Saca-rolhas%20e%20vinho#contactos">Pedir orçamento</a><a class="ver" href="produtos/saca-rolhas.html">Ver artigo →</a></div></div></article>
-        <article class="top"><a class="top-img sel" href="produtos/cadernos.html" style="background-image:url('IMG/modelos/gasmon.jpg')"><span class="etq">Sugestão</span></a><div class="top-corpo"><h3>Caderno de bambu</h3><p>Bambu e tecido reciclado, com espiral. Sustentável e com o seu logótipo na capa.</p><div class="top-botoes"><a class="btn btn-principal" href="?produto=Cadernos#contactos">Pedir orçamento</a><a class="ver" href="produtos/cadernos.html">Ver artigo →</a></div></div></article>
+        <article class="top"><a class="top-img sel" href="produtos/t-shirts-e-sweats.html" style="background-image:url(IMG/modelos/epika.jpg)"><span class="etq ouro">Mais vendido</span></a><div class="top-corpo"><h3>T-shirt de adulto</h3><p>Algodão ring spun, em 14 cores. Perfeita para equipas, eventos e marcas.</p><div class="top-botoes"><a class="btn btn-principal" href="?produto=T-shirts%20e%20Sweats#contactos">Pedir orçamento</a><a class="ver" href="produtos/t-shirts-e-sweats.html">Ver artigo →</a></div></div></article>
+        <article class="top"><a class="top-img sel" href="produtos/t-shirts-e-sweats.html" style="background-image:url(IMG/modelos/cosmos.jpg)"><span class="etq ouro">Mais vendido</span></a><div class="top-corpo"><h3>Sweat de gola redonda</h3><p>Confortável e encorpada, em 15 cores. Uma escolha segura para oferecer.</p><div class="top-botoes"><a class="btn btn-principal" href="?produto=T-shirts%20e%20Sweats#contactos">Pedir orçamento</a><a class="ver" href="produtos/t-shirts-e-sweats.html">Ver artigo →</a></div></div></article>
+        <article class="top"><a class="top-img sel" href="produtos/canecas.html" style="background-image:url(IMG/modelos/cotes.jpg)"><span class="etq">Sugestão</span></a><div class="top-corpo"><h3>Caneca com colher</h3><p>Cerâmica com interior colorido. Uma prenda simples e muito apreciada.</p><div class="top-botoes"><a class="btn btn-principal" href="?produto=Canecas#contactos">Pedir orçamento</a><a class="ver" href="produtos/canecas.html">Ver artigo →</a></div></div></article>
+        <article class="top"><a class="top-img sel" href="produtos/canetas.html" style="background-image:url(IMG/modelos/mobex.jpg)"><span class="etq">Sugestão</span></a><div class="top-corpo"><h3>Conjunto esferográfica e roller</h3><p>Esferográfica e roller em estojo de oferta. O brinde elegante para empresas.</p><div class="top-botoes"><a class="btn btn-principal" href="?produto=Canetas#contactos">Pedir orçamento</a><a class="ver" href="produtos/canetas.html">Ver artigo →</a></div></div></article>
+        <article class="top"><a class="top-img sel" href="produtos/saca-rolhas.html" style="background-image:url(IMG/modelos/boriax.jpg)"><span class="etq">Sugestão</span></a><div class="top-corpo"><h3>Conjunto de vinho</h3><p>Caixa de bambu com saca-rolhas e acessórios. Ideal para presentes corporativos.</p><div class="top-botoes"><a class="btn btn-principal" href="?produto=Saca-rolhas%20e%20vinho#contactos">Pedir orçamento</a><a class="ver" href="produtos/saca-rolhas.html">Ver artigo →</a></div></div></article>
+        <article class="top"><a class="top-img sel" href="produtos/cadernos.html" style="background-image:url(IMG/modelos/gasmon.jpg)"><span class="etq">Sugestão</span></a><div class="top-corpo"><h3>Caderno de bambu</h3><p>Bambu e tecido reciclado, com espiral. Sustentável e com o seu logótipo na capa.</p><div class="top-botoes"><a class="btn btn-principal" href="?produto=Cadernos#contactos">Pedir orçamento</a><a class="ver" href="produtos/cadernos.html">Ver artigo →</a></div></div></article>
       </div></div></section>
 
   
@@ -299,7 +312,7 @@
   <!-- ================= SOBRE ================= -->
   <section id="sobre">
     <div class="container sobre-grid">
-      <div class="sobre-img" role="img" aria-label="Logótipo DT Custom em dourado"></div>
+      <div class="sobre-video"><video src="media/video-promocional.mp4" autoplay muted loop playsinline controls preload="metadata" aria-label="Vídeo promocional DT Custom"></video></div>
       <div class="sobre-texto">
         <span class="tag">Sobre nós</span>
         <h2>Peças únicas, feitas com cuidado</h2>
@@ -312,6 +325,26 @@
           <li>Prazos rápidos</li>
         </ul>
       </div>
+    </div>
+  </section>
+
+  <!-- ================= PERGUNTAS FREQUENTES ================= -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="centro">
+        <span class="tag">Dúvidas</span>
+        <h2>Perguntas frequentes</h2>
+        <p class="subtitulo">O essencial antes de pedir o seu orçamento.</p>
+      </div>
+      <div class="faq-lista">
+        <details><summary>Como peço um orçamento?</summary><p>Preencha o formulário abaixo ou fale connosco por WhatsApp ou email, indicando o produto, a quantidade e a sua ideia ou logótipo. Enviamos uma proposta sem compromisso.</p></details>
+        <details><summary>Qual é a quantidade mínima?</summary><p>Trabalhamos desde uma única peça até grandes encomendas. Diga-nos a quantidade e indicamos as condições no orçamento.</p></details>
+        <details><summary>Que ficheiro de logótipo devo enviar?</summary><p>O ideal é um ficheiro vetorial (SVG, AI ou PDF) ou um PNG de alta resolução com fundo transparente. Se só tiver uma imagem simples, envie-a na mesma e avaliamos.</p></details>
+        <details><summary>Vou ver como fica antes de produzirem?</summary><p>Sim. Enviamos uma maquete digital para aprovação antes de iniciar a produção.</p></details>
+        <details><summary>Qual é o prazo de entrega?</summary><p>Depende do produto e da quantidade. O prazo é indicado no orçamento, antes de confirmar a encomenda.</p></details>
+        <details><summary>Fazem envios para todo o país?</summary><p>Sim. Somos uma loja 100% online e enviamos para a morada que indicar, em todo o país.</p></details>
+      </div>
+      <div class="faq-cta"><a href="#contactos" class="btn btn-principal">Pedir orçamento</a></div>
     </div>
   </section>
 
@@ -333,14 +366,14 @@
 
         <form id="formulario">
           <div class="linha">
-            <div><label for="nome">Nome</label><input id="nome" required placeholder="O seu nome"></div>
-            <div><label for="email">Email</label><input id="email" type="email" required placeholder="email@exemplo.com"></div>
+            <div><label for="nome">Nome</label><input id="nome" name="nome" autocomplete="name" required placeholder="O seu nome"></div>
+            <div><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="email@exemplo.com"></div>
           </div>
           <div class="linha">
-            <div><label for="telefone">Telefone</label><input id="telefone" type="tel" placeholder="9XX XXX XXX"></div>
+            <div><label for="telefone">Telefone</label><input id="telefone" name="telefone" type="tel" autocomplete="tel" placeholder="9XX XXX XXX"></div>
             <div>
               <label for="produto">Produto</label>
-              <select id="produto">
+              <select id="produto" name="produto">
                 <option>T-shirts e Sweats</option>
                 <option>Canecas</option>
                 <option>Canetas</option>
@@ -352,9 +385,14 @@
               </select>
             </div>
           </div>
-          <div><label for="mensagem">Mensagem</label><textarea id="mensagem" required placeholder="Descreva a sua ideia, quantidades, prazos..."></textarea></div>
-          <button type="submit" class="btn btn-principal">Enviar pedido</button>
-          <p class="form-nota">Ao enviar, abre o seu programa de email com o pedido já preenchido.</p>
+          <div><label for="mensagem">Mensagem</label><textarea id="mensagem" name="mensagem" required placeholder="Descreva a sua ideia, quantidades, prazos..."></textarea></div>
+          <div class="campo-mel" aria-hidden="true"><label>Não preencher<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+          <div class="form-estado" id="formEstado" role="status" aria-live="polite"></div>
+          <div class="form-botoes">
+            <button type="submit" class="btn btn-principal" id="enviar">Enviar pedido</button>
+            <a class="btn btn-wa" id="btnWa" href="https://wa.me/351939630618" target="_blank" rel="noopener">Ou fale por WhatsApp</a>
+          </div>
+          <p class="form-nota">Respondemos por email ou telefone. Os seus dados são usados apenas para responder ao pedido.</p>
         </form>
       </div>
     </div>
@@ -363,10 +401,10 @@
   <!-- ================= RODAPÉ ================= -->
   <footer>
     <div class="container rodape">
-      <p>© <span id="ano"></span> DT Custom · Artigos Personalizados. Todos os direitos reservados.</p>
+      <p>© <span id="ano"></span> DT Custom · Artigos Personalizados. Todos os direitos reservados.<br><a href="privacidade.html" style="text-decoration:underline">Política de privacidade</a> · <a href="https://www.livroreclamacoes.pt" target="_blank" rel="noopener" style="text-decoration:underline">Livro de Reclamações</a></p>
       <div class="redes">
         <!-- Coloque os links das suas redes sociais -->
-        <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+        <a href="https://www.instagram.com/dtcustom2026/" target="_blank" rel="noopener" aria-label="Instagram">
           <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 4.7a5.1 5.1 0 100 10.2 5.1 5.1 0 000-10.2zm0 8.4a3.3 3.3 0 110-6.6 3.3 3.3 0 010 6.6zm5.3-9.8a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"/></svg>
         </a>
         <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
@@ -380,20 +418,12 @@
   </footer>
 
   <!-- Botão WhatsApp (altere o número: só dígitos, com indicativo 351) -->
-  <a class="whatsapp" href="https://wa.me/351939630618" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <a class="instagram-flut" href="https://www.instagram.com/dtcustom2026/" target="_blank" rel="noopener" aria-label="Seguir no Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 4.7a5.1 5.1 0 100 10.2 5.1 5.1 0 000-10.2zm0 8.4a3.3 3.3 0 110-6.6 3.3 3.3 0 010 6.6zm5.3-9.8a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"/></svg></a>
+  <a class="whatsapp" href="https://wa.me/351939630618?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1112 21.8zM12 0a12 12 0 00-10.3 18.1L0 24l6.1-1.6A12 12 0 1012 0z"/></svg>
   </a>
 
   <script>
-    // Clicar num produto abre a sua página
-    document.querySelectorAll('.produto').forEach(function (card) {
-      var slug = card.querySelector('h3').textContent.trim().toLowerCase().replace(/\s+/g, '-');
-      card.addEventListener('click', function (e) {
-        if (e.target.closest('a')) return;
-        window.location.href = 'produtos/' + slug + '.html';
-      });
-    });
-
     // Pré-seleciona o produto vindo de uma página de produto (?produto=...)
     var pedido = new URLSearchParams(window.location.search).get('produto');
     if (pedido) {
@@ -402,27 +432,63 @@
     }
     document.getElementById('ano').textContent = new Date().getFullYear();
 
-    document.querySelectorAll('.menu a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        document.querySelector('.menu').classList.remove('aberto');
-      });
-    });
+    var menu = document.getElementById('menu'), menuBtn = document.getElementById('menuBtn');
+    function fecharMenu() { menu.classList.remove('aberto'); menuBtn.setAttribute('aria-expanded', 'false'); }
+    menuBtn.addEventListener('click', function () { var a = menu.classList.toggle('aberto'); menuBtn.setAttribute('aria-expanded', a); });
+    menu.querySelectorAll('a').forEach(function (l) { l.addEventListener('click', fecharMenu); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') fecharMenu(); });
 
     // Formulário: abre o email do cliente com o pedido preenchido (ALTERE o email de destino)
     var EMAIL_DESTINO = 'dtcustom@outlook.pt';
 
-    document.getElementById('formulario').addEventListener('submit', function (e) {
+    // Envio direto (FormSubmit). Se falhar, abre o email como alternativa.
+    var form = document.getElementById('formulario');
+    var estado = document.getElementById('formEstado');
+    var btnEnviar = document.getElementById('enviar');
+
+    function mostrar(tipo, texto) { estado.className = 'form-estado ' + tipo; estado.textContent = texto; }
+    function abrirEmail(d) {
+      var corpo = 'Nome: ' + d.nome + '\nEmail: ' + d.email + '\nTelefone: ' + d.telefone +
+                  '\nProduto: ' + d.produto + '\n\n' + d.mensagem;
+      window.location.href = 'mailto:' + EMAIL_DESTINO + '?subject=' +
+        encodeURIComponent('Pedido de orçamento - ' + d.produto) + '&body=' + encodeURIComponent(corpo);
+    }
+
+    // O botão de WhatsApp leva o produto e o nome já escritos
+    function atualizarWa() {
+      var t = 'Olá! Gostaria de um orçamento para: ' + document.getElementById('produto').value + '.';
+      var n = document.getElementById('nome').value.trim();
+      if (n) t += ' Nome: ' + n + '.';
+      document.getElementById('btnWa').href = 'https://wa.me/351939630618?text=' + encodeURIComponent(t);
+    }
+    ['produto', 'nome'].forEach(function (id) { document.getElementById(id).addEventListener('input', atualizarWa); });
+    atualizarWa();
+
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var nome = document.getElementById('nome').value;
-      var email = document.getElementById('email').value;
-      var telefone = document.getElementById('telefone').value;
-      var produto = document.getElementById('produto').value;
-      var mensagem = document.getElementById('mensagem').value;
-      var assunto = 'Pedido de orçamento - ' + produto;
-      var corpo = 'Nome: ' + nome + '\nEmail: ' + email + '\nTelefone: ' + telefone +
-                  '\nProduto: ' + produto + '\n\n' + mensagem;
-      window.location.href = 'mailto:' + EMAIL_DESTINO +
-        '?subject=' + encodeURIComponent(assunto) + '&body=' + encodeURIComponent(corpo);
+      var d = {
+        nome: form.nome.value, email: form.email.value, telefone: form.telefone.value,
+        produto: form.produto.value, mensagem: form.mensagem.value
+      };
+      if (form._honey.value) return; // anti-spam
+      btnEnviar.disabled = true; btnEnviar.textContent = 'A enviar…';
+      fetch('https://formsubmit.co/ajax/' + EMAIL_DESTINO, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          Nome: d.nome, Email: d.email, Telefone: d.telefone, Produto: d.produto, Mensagem: d.mensagem,
+          _subject: 'Pedido de orçamento - ' + d.produto, _replyto: d.email, _template: 'table', _captcha: 'false'
+        })
+      }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(function () {
+          form.reset(); atualizarWa();
+          mostrar('ok', 'Pedido enviado! Responderemos o mais rápido possível, por email ou telefone.');
+        })
+        .catch(function () {
+          mostrar('erro', 'Não foi possível enviar agora. A abrir o seu email como alternativa…');
+          setTimeout(function () { abrirEmail(d); }, 1200);
+        })
+        .finally(function () { btnEnviar.disabled = false; btnEnviar.textContent = 'Enviar pedido'; });
     });
   </script>
 </body>
