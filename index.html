@@ -3,11 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DT Custom | Artigos Personalizados</title>
+  <title>DT Custom | Bem-vindo</title>
   <meta name="description" content="DT Custom — artigos personalizados. Entre na nossa loja online.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232a2a2e'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' font-weight='700' text-anchor='middle' fill='%23b08d57'%3EDT%3C/text%3E%3C/svg%3E">
-  <meta property="og:title" content="DT Custom | Artigos Personalizados">
-  <meta property="og:description" content="T-shirts, sweats, canecas, canetas e brindes com a sua marca.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -76,10 +73,9 @@
     .entrar:hover::before { transform: none; }
     .entrar { z-index: 0; }
 
-    .saltar { margin-top: 14px; font-size: .7rem; letter-spacing: .24em; text-transform: uppercase; color: #cfc6b5; text-decoration: underline; text-underline-offset: 4px; animation: aparecer 1s ease 1.9s both; }
-    .auto { margin-top: 10px; font-size: .68rem; letter-spacing: .2em; color: #8c8579; animation: aparecer 1s ease 2.2s both; }
+    .auto { margin-top: 18px; font-size: .68rem; letter-spacing: .2em; color: #8c8579; animation: aparecer 1s ease 2.2s both; }
     .barra { width: 140px; height: 2px; background: rgba(255,255,255,.12); margin: 8px auto 0; overflow: hidden; border-radius: 2px; }
-    .barra i { display: block; height: 100%; width: 0; background: var(--dourado); animation: encher 4.8s linear 2.2s forwards; }
+    .barra i { display: block; height: 100%; width: 0; background: var(--dourado); animation: encher 10s linear 2.2s forwards; }
     @keyframes encher { to { width: 100%; } }
 
     /* ===== Produtos a flutuar ===== */
@@ -139,16 +135,12 @@
     <p class="slogan">Artigos personalizados</p>
     <p class="palavra" aria-hidden="true">Personalizamos <span id="palavra">T-shirts</span></p>
     <a href="site.html" class="entrar" id="entrar">Entrar no site</a>
-    <a href="site.html" class="saltar" id="saltar">Saltar</a>
     <div class="auto">A entrar automaticamente<div class="barra"><i></i></div></div>
   </main>
 
   <div class="saida" id="saida"></div>
 
   <script>
-    // Já viu a entrada nesta sessão? Vai direto ao site.
-    try { if (sessionStorage.getItem('dt-entrada')) { window.location.replace('site.html'); } else { sessionStorage.setItem('dt-entrada', '1'); } } catch (e) {}
-
     // Palavras que vão trocando
     var palavras = ['T-shirts', 'Sweats', 'Canecas', 'Canetas', 'Porta-chaves', 'Guarda-chuvas', 'a sua marca'];
     var i = 0, el = document.getElementById('palavra');
@@ -167,10 +159,9 @@
       setTimeout(function () { window.location.href = destino; }, 700);
     }
     document.getElementById('entrar').addEventListener('click', entrar);
-    document.getElementById('saltar').addEventListener('click', entrar);
 
-    // Entra sozinho ao fim de ~7 segundos (altere ou apague esta linha)
-    var timer = setTimeout(entrar, 7000);
+    // Entra sozinho ao fim de ~12 segundos (altere ou apague esta linha)
+    var timer = setTimeout(entrar, 12200);
     document.addEventListener('keydown', function (e) { if (e.key === 'Enter') { clearTimeout(timer); entrar(); } });
   </script>
 </body>
